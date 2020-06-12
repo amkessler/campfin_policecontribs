@@ -15,6 +15,8 @@ library(widgetframe)
 library(scales)
 library(zoo)
 library(lubridate)
+library(gt)
+library(kableExtra)
 options(scipen = 999)
 
 #load the data tables from step 01
@@ -67,9 +69,11 @@ The disparity is starker for those currently in power: Democratic state politici
 
 The puts Democrats in a bind given they TKTKTKTKTK.  
 
+### Top donors, top cands
+
 The top unions since 2000 for Democrats are heavily weighted toward California and New York, which given those states' populations is mostly to be expected. 
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, warning=FALSE}
 topdonors_todemcands <- contribs_tocands %>% 
   filter(general_party == "Democratic") %>% 
   group_by(contributor) %>% 
@@ -77,43 +81,46 @@ topdonors_todemcands <- contribs_tocands %>%
   arrange(desc(total_dollars)) %>% 
   head(10)
 
-topdonors_todemcands
+topdonors_todemcands %>% 
+  kable(format.args = list(big.mark = ",")) %>%
+  kable_styling(bootstrap_options = "striped", full_width = F, position = "left")
+
+
 
 ```
 
+Here are the top union donors to Republican candidates...
+
+```{r, echo=FALSE}
+topdonors_togopcands <- contribs_tocands %>% 
+  filter(general_party == "Republican") %>% 
+  group_by(contributor) %>% 
+  summarise(total_dollars = sum(dollar_amount)) %>% 
+  arrange(desc(total_dollars)) %>% 
+  head(10)
+
+topdonors_togopcands %>% 
+  kable(format.args = list(big.mark = ",")) %>%
+  kable_styling(bootstrap_options = "striped", full_width = F, position = "left")
+
+
+```
+
+Who are the candidates who have gotten the biggest bails of cash from police unions? Here are the Democrats.
 
 
 ```{r, echo=FALSE}
 
-d <- ggplot(data = topdonors_todemcands, aes(x = contributor, y = total_dollars)) +
-  geom_col(position = "dodge") + coord_flip() + theme_minimal()
+topcands_dem <- contribs_tocands %>% 
+  filter(general_party == "Democratic") %>% 
+  group_by(candidate, election_jurisdiction) %>% 
+  summarise(total_dollars = sum(dollar_amount)) %>% 
+  arrange(desc(total_dollars)) %>% 
+  head(10)
 
-d
-
-# The palette with grey:
-cbPalette <- c("#448512","#999999")
-# To use for fills, add
-# scale_fill_manual(values=cbPalette)
-
-d2 <- d + labs(title="Early vote percentage, by gender",
-               # subtitle = "A subtitle",
-               caption = "Source: Catalist, CNN analysis",
-               x ="", y = "") +
-  theme(plot.title = element_text(hjust = 0.5)) +
-  scale_fill_manual(values=cbPalette) +
-  theme(legend.title=element_blank())
-
-d2
-
-dd <- ggplotly(d2) 
-
-dd_nomenu <- dd %>% config(displayModeBar = FALSE)
-dd_nomenu
-
-#save as embeddable format
-# htmlwidgets::saveWidget(frameableWidget(dd), 'demtopzip_plt.html')
-htmlwidgets::saveWidget(frameableWidget(dd_nomenu), 'chart_earlyvote_bygender_110518.html')
-
+topcands_dem %>% 
+  kable(format.args = list(big.mark = ",")) %>%
+  kable_styling(bootstrap_options = "striped", full_width = F, position = "left")
 
 
 ```
