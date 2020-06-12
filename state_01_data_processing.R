@@ -7,7 +7,6 @@ library(lubridate)
 
 # function to clean and format the FTM files
 process_ftm_table <- function(rawdata){
-  
   #clean columns and remove :id and :token fields
   cleandata <- rawdata %>% 
     select(!ends_with(c(":id", ":token")), -request) %>% 
@@ -20,7 +19,6 @@ process_ftm_table <- function(rawdata){
     ) %>% 
     #filter for just organizations
     filter(type_of_contributor == "Non-Individual")
-  
   return(cleandata)
   }
 
