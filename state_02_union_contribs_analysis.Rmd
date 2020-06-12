@@ -8,7 +8,20 @@ output: html_document
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 
+library(tidyverse)
+library(plotly)
+library(htmltools)
+library(widgetframe)
+library(scales)
+library(zoo)
+library(lubridate)
+options(scipen = 999)
 
+#load the data tables from step 01
+contribs_tocands <- readRDS("processed_data/contribs_tocands.rds")
+contribs_topartycmtes <- readRDS("processed_data/contribs_topartycmtes.rds")
+contribs_toballotmeasures <- readRDS("processed_data/contribs_toballotmeasures.rds")
+currentofficeholders_byparty <- readRDS("processed_data/currentofficeholders_byparty.rds")
 
 
 ```
@@ -44,15 +57,30 @@ But whether this moment translates into the political will strong enough to over
   
 The real test will be in the states themselves, where the police and their powerful unions are major players, having spent tens of millions of dollars to curry favor with state and local politicians. 
 
-In fact, police-affiliated unions have contributed nearly $150 million to state candidates, political parties and ballot initiatives across the United States since 2000, a new Bloomberg Industry Group analysis found.
+In fact, police-affiliated unions have contributed nearly **$150 million** to state candidates, political parties and ballot initiatives across the United States since 2000, a new Bloomberg Industry Group analysis found.
 
-The majority of that money over the last two decades has gone to Democrats, who in some places have responded by blocking meaningful change to end excessive use of force, even after horrific incidents. Baltimore, where Freddie Gray died in police custody in YEAR as a result of a catastrophic neck injury, is exhibit A.
+The majority of that money has gone to Democrats, who in some places have responded by blocking meaningful change to end excessive use of force, even after horrific incidents. Baltimore, where Freddie Gray died in police custody in YEAR as a result of a catastrophic neck injury, is exhibit A.
 
-Democrats received more than *$47 million* compared with Republicans' *$27 milion* over the last two decades, according to the analysis of campaign data compiled by the nonprofit National Institute on Money in Politics. 
+Democrats received more than **$47 million** compared with Republicans' **$27 milion** over the last two decades, according to the analysis of campaign data compiled by the nonprofit National Institute on Money in Politics. 
 
-The puts Democrats in a bind given they TKTKTKTKTK.
+The disparity is starker for those currently in power: Democratic state politicians holding office right now? They received more than **$23 million** from law enforcement unions over the course of their careers -- nearly triple that of their current Republican counterparts. 
 
-The disparity is starker for those currently in power: Democratic state politicians holding office right received more than $23 million from law enforcement unions over the course of their careers -- nearly triple their current Republican counterparts. 
+The puts Democrats in a bind given they TKTKTKTKTK.  
+
+
+
+```{r, echo=FALSE}
+currentofficeholders_byparty %>% 
+  group_by(general_party, contributor) %>% 
+  summarise(total_dollars = sum(dollar_amount)) %>% 
+  arrange(desc(total_dollars))
+
+
+
+```
+
+
+
 
 
 
@@ -68,18 +96,40 @@ The disparity is starker for those currently in power: Democratic state politici
 
 ```{r, echo=FALSE}
 
+d <- ggplot(data = gender_pct, aes(x = state, y = percentage, fill = subgroup)) +
+  geom_col(position = "dodge") + coord_flip() + theme_minimal()
+
+d
+
+# The palette with grey:
+cbPalette <- c("#448512","#999999")
+# To use for fills, add
+# scale_fill_manual(values=cbPalette)
+
+d2 <- d + labs(title="Early vote percentage, by gender",
+               # subtitle = "A subtitle",
+               caption = "Source: Catalist, CNN analysis",
+               x ="", y = "") +
+  theme(plot.title = element_text(hjust = 0.5)) +
+  scale_fill_manual(values=cbPalette) +
+  theme(legend.title=element_blank())
+
+d2
+
+dd <- ggplotly(d2) 
+
+dd_nomenu <- dd %>% config(displayModeBar = FALSE)
+dd_nomenu
+
+#save as embeddable format
+# htmlwidgets::saveWidget(frameableWidget(dd), 'demtopzip_plt.html')
+htmlwidgets::saveWidget(frameableWidget(dd_nomenu), 'chart_earlyvote_bygender_110518.html')
 
 
 
 ```
 
 
-```{r, echo=FALSE}
-
-
-
-
-```
 
 
 ```{r, echo=FALSE}
