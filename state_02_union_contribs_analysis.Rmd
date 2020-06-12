@@ -1,0 +1,69 @@
+---
+title: "State-Level Police Union Contributions"
+author: "Aaron Kessler"
+date: "6/11/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+
+
+
+```
+
+<!-- Current officeholders -->
+<!-- Total $ -->
+<!-- 	DEMOCRATIC	24,620	$23,110,171 -->
+<!-- 	REPUBLICAN	12,129	$8,971,135 -->
+<!-- 	NONPARTISAN	414	$441,374 -->
+<!-- 	THIRD-PARTY	192	$16,725 -->
+
+
+## Lede
+
+asdfasdf
+asdfasd
+
+
+
+
+
+
+
+
+
+
+
+```{r, echo=FALSE}
+
+
+
+
+```
+
+
+```{r, echo=FALSE}
+
+
+
+
+```
+
+
+```{r, echo=FALSE}
+
+
+
+
+```
+
+
+```{r, echo=FALSE}
+
+
+
+
+```
+
