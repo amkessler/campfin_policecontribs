@@ -67,36 +67,25 @@ The disparity is starker for those currently in power: Democratic state politici
 
 The puts Democrats in a bind given they TKTKTKTKTK.  
 
-
+The top unions since 2000 for Democrats are heavily weighted toward California and New York, which given those states' populations is mostly to be expected. 
 
 ```{r, echo=FALSE}
-currentofficeholders_byparty %>% 
-  group_by(general_party, contributor) %>% 
+topdonors_todemcands <- contribs_tocands %>% 
+  filter(general_party == "Democratic") %>% 
+  group_by(contributor) %>% 
   summarise(total_dollars = sum(dollar_amount)) %>% 
-  arrange(desc(total_dollars))
+  arrange(desc(total_dollars)) %>% 
+  head(10)
 
-
+topdonors_todemcands
 
 ```
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 ```{r, echo=FALSE}
 
-d <- ggplot(data = gender_pct, aes(x = state, y = percentage, fill = subgroup)) +
+d <- ggplot(data = topdonors_todemcands, aes(x = contributor, y = total_dollars)) +
   geom_col(position = "dodge") + coord_flip() + theme_minimal()
 
 d
