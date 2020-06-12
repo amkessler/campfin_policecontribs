@@ -36,19 +36,23 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Lede
 
-It's been a long time coming, but recent weeks has finally brought about a sea change in public opinion toward police in the wake of George Floyd's death in Minneapolis.  
+It's been a long time coming, but recent weeks have finally brought about a sea change in public opinion toward police in the wake of George Floyd's death in Minneapolis.  
   
-Police abuses of power and the targeting, and killing, of black Americans, has sent thousands of people into the streets to protest across the country on a scale not seen in decades. And surveys now show broad support nationwide for reforms aimed at holding police accountable.
+Police abuses of power and the targeting, and killing, of black Americans, has sent thousands of people into the streets to protest across the country on a scale not seen in decades. And surveys now show broad support nationwide for reforms to hold police accountable.
 
-But whether this moment translates into a political will strong enough to overcome police departments' repeated ability to thrwart efforts to change the system remains to be seen.  
+But whether this moment translates into the political will strong enough to overcome police departments' repeated ability to thrwart efforts to change the system remains to be seen.  
   
-The real test will be in the states themselves, where the police and their powerful unions are major players, having spent tens of millions of dollars to curry favor with state and local politicans. The majority of that money has gone to Democrats, who find themselves 
+The real test will be in the states themselves, where the police and their powerful unions are major players, having spent tens of millions of dollars to curry favor with state and local politicians. 
 
+In fact, police-affiliated unions have contributed nearly $150 million to state candidates, political parties and ballot initiatives across the United States since 2000, a new Bloomberg Industry Group analysis found.
 
-Police unions over time have given tens of millions of dollars in donations to Democratic candidates in state and local elections, a new analysis shows, and in some places, they have responded by blocking meaningful reforms when it comes to excessive use of force. Baltimore, where Freddie Gray died in police custody as a result of a catastrophic neck injury, is exhibit A. That may change, however, as a groundswell of support for reforms continues.The city's police department is currently operating under federal oversight.
+The majority of that money over the last two decades has gone to Democrats, who in some places have responded by blocking meaningful change to end excessive use of force, even after horrific incidents. Baltimore, where Freddie Gray died in police custody in YEAR as a result of a catastrophic neck injury, is exhibit A.
 
- 
+Democrats received more than *$47 million* compared with Republicans' *$27 milion* over the last two decades, according to the analysis of campaign data compiled by the nonprofit National Institute on Money in Politics. 
 
+The puts Democrats in a bind given they TKTKTKTKTK.
+
+The disparity is starker for those currently in power: Democratic state politicians holding office right received more than $23 million from law enforcement unions over the course of their careers -- nearly triple their current Republican counterparts. 
 
 
 
