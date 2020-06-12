@@ -147,6 +147,29 @@ transactionlevel_to_candidates %>%
 
 
 
+### CURRENT OFFICEHOLDERS - AGGREGATE STATE AND PARTY ####
+
+raw_currentoffice_agg_state_party <- read_csv("raw_data/FTM_pu_currentofficeholders_agg_state_party.csv")
+
+#earlier function won't work because different columns here. So do it directly instead
+currentoffice_agg_state_party <- raw_currentoffice_agg_state_party %>% 
+  select(!ends_with(c(":id", ":token")), -request) %>% 
+  clean_names() %>% 
+  rename(dollar_amount = total) %>% 
+  #format columns
+  mutate(
+    dollar_amount = as.numeric(dollar_amount),
+    number_of_records = as.integer(number_of_records)
+  ) 
+
+#save results to file
+saveRDS(currentoffice_agg_state_party, "processed_data/currentoffice_agg_state_party.rds")
+
+#total money?
+currentoffice_agg_state_party %>% 
+  summarise(sum(dollar_amount))
+
+
 
 
 #### FILTERING OUT SOME UNIONS ####
