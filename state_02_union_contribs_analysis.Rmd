@@ -13,7 +13,20 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ```
 
-<!-- Current officeholders -->
+
+<!-- Total to all from the pol unions -->
+<!-- 102,262	$148,949,602 -->
+
+<!-- Total to all by party - if party is coded for a record -->
+<!-- # of Records -->
+<!-- Total $ -->
+<!-- 	DEMOCRATIC	50,623	$47,143,367 -->
+<!-- 	REPUBLICAN	37,749	$27,422,053 -->
+<!-- 	NONPARTISAN	409	$544,807 -->
+<!-- 	THIRD-PARTY	558	$526,861 -->
+
+
+<!-- totals to Current officeholders only -->
 <!-- Total $ -->
 <!-- 	DEMOCRATIC	24,620	$23,110,171 -->
 <!-- 	REPUBLICAN	12,129	$8,971,135 -->
@@ -23,8 +36,21 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Lede
 
-asdfasdf
-asdfasd
+It's been a long time coming, but recent weeks has finally brought about a sea change in public opinion toward police in the wake of George Floyd's death in Minneapolis.  
+  
+Police abuses of power and the targeting, and killing, of black Americans, has sent thousands of people into the streets to protest across the country on a scale not seen in decades. And surveys now show broad support nationwide for reforms aimed at holding police accountable.
+
+But whether this moment translates into a political will strong enough to overcome police departments' repeated ability to thrwart efforts to change the system remains to be seen.  
+  
+The real test will be in the states themselves, where the police and their powerful unions are major players, having spent tens of millions of dollars to curry favor with state and local politicans. The majority of that money has gone to Democrats, who find themselves 
+
+
+Police unions over time have given tens of millions of dollars in donations to Democratic candidates in state and local elections, a new analysis shows, and in some places, they have responded by blocking meaningful reforms when it comes to excessive use of force. Baltimore, where Freddie Gray died in police custody as a result of a catastrophic neck injury, is exhibit A. That may change, however, as a groundswell of support for reforms continues.The city's police department is currently operating under federal oversight.
+
+ 
+
+
+
 
 
 
