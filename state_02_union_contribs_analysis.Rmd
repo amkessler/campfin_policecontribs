@@ -125,7 +125,24 @@ topcands_dem %>%
 
 ```
 
+And the Republicans...
 
+
+```{r, echo=FALSE}
+
+topcands_gop <- contribs_tocands %>% 
+  filter(general_party == "Republican") %>% 
+  group_by(candidate, election_jurisdiction) %>% 
+  summarise(total_dollars = sum(dollar_amount)) %>% 
+  arrange(desc(total_dollars)) %>% 
+  head(10)
+
+topcands_gop %>% 
+  kable(format.args = list(big.mark = ",")) %>%
+  kable_styling(bootstrap_options = "striped", full_width = F, position = "left")
+
+
+```
 
 
 ```{r, echo=FALSE}
