@@ -102,7 +102,28 @@ contribs_tocands %>%
 ```
 
 
-```{r working, include=FALSE}
+```{r narrative_vals, include=FALSE}
+###this chunk used for working out R code for inserting pieces in-line into narrative below
+
+
+contribs_combined_candspartycmtes %>% 
+  group_by(party) %>% 
+  summarise(total_dollars = sum(dollar_amount)) %>% 
+  mutate(total_dollars = dollar(total_dollars))
+
+#total to Democratic cands/cmtes
+vector_total_dem_candscmtes <- contribs_combined_candspartycmtes %>% 
+  filter(party == "Democratic") %>% 
+  summarise(total_dollars = sum(dollar_amount)) %>% 
+  mutate(total_dollars = dollar(total_dollars)) %>% 
+  pull()
+
+#total to Republican cands/cmtes
+vector_total_gop_candscmtes <- contribs_combined_candspartycmtes %>% 
+  filter(party == "Republican") %>% 
+  summarise(total_dollars = sum(dollar_amount)) %>% 
+  mutate(total_dollars = dollar(total_dollars)) %>% 
+  pull()
 
 
 
@@ -118,7 +139,7 @@ In fact, police-affiliated unions have contributed nearly **$150 million** to st
 
 The majority of that money has gone to Democrats, who in some places have responded by blocking meaningful change to end excessive use of force, even after horrific incidents. Minnesota's inaction after the 2016 death of Philando Castile could be exhibit A. Baltimore, where Freddie Gray died in police custody in 2015 as a result of a catastrophic neck injury, similarly failed to subsequently take meaningful action.
 
-Democratic candidates recieved **$47 million** compared with Republicans' **$27 milion** over the last two decades, according to the analysis of campaign data compiled by the nonprofit National Institute on Money in Politics. State political party groups have also been on the receiving end of police union largesse, giving Democrats and additional **$19 million** and Republicans **$10 million**.
+Democratic candidates and party committees recieved `r vector_total_dem_candscmtes` compared with Republicans' **$27 milion** over the last two decades, according to the analysis of campaign data compiled by the nonprofit National Institute on Money in Politics. State political party groups have also been on the receiving end of police union largesse, giving Democrats and additional **$19 million** and Republicans **$10 million**.
 
 And the numerous Democratic state politicians holding office right now at this very moment? They've collectively received about **$23 million** from law enforcement unions over the course of their careers -- nearly triple that of their current Republican counterparts. 
 
