@@ -17,99 +17,132 @@ library(zoo)
 library(lubridate)
 library(gt)
 library(kableExtra)
+library(writexl)
 options(scipen = 999)
 
 #load the data tables from step 01
 contribs_tocands <- readRDS("processed_data/contribs_tocands.rds")
 contribs_topartycmtes <- readRDS("processed_data/contribs_topartycmtes.rds")
+contribs_combined_candspartycmtes <- readRDS("processed_data/contribs_combined_candspartycmtes.rds")
 contribs_toballotmeasures <- readRDS("processed_data/contribs_toballotmeasures.rds")
 currentofficeholders_byparty <- readRDS("processed_data/currentofficeholders_byparty.rds")
+statepops <- readRDS("processed_data/statepops.rds")
+
+
+
+
+contribs_tocands %>% 
+  group_by(general_party) %>% 
+  summarise(sum(dollar_amount)) 
+
+contribs_topartycmtes %>% 
+  group_by(party) %>% 
+  summarise(sum(dollar_amount)) 
+
+contribs_tocands %>% 
+  group_by(incumbency_status) %>% 
+  summarise(tot_dollars = sum(dollar_amount)) %>% 
+  mutate(tot_dollars / sum(tot_dollars) * 100)
+
+
+
+
+#if want to limit the years choose here
+timeframe_vector <- c("2014", "2016", "2017", "2018", "2019", "2020")
+
+
+
+#create per capita measures and rankings
+staterankings_tocands_all <- contribs_tocands %>% 
+  group_by(election_jurisdiction) %>% 
+  summarise(total_dollars = sum(dollar_amount)) %>% 
+  arrange(desc(total_dollars)) %>% 
+  inner_join(statepops, by = c("election_jurisdiction" = "state")) %>% 
+  mutate(
+    dollars_per1000ppl = (total_dollars / population) * 1000,
+    rank_dollars_per1000ppl = min_rank(desc(dollars_per1000ppl)),
+    rank_population = min_rank(desc(population))
+  ) %>% 
+  arrange(rank_dollars_per1000ppl)
+
+staterankings_tocands_all %>% write_xlsx("output/staterankings_tocands_all.xlsx")
+
+
+staterankings_topartycmtes_all <- contribs_topartycmtes %>% 
+  # filter(election_year %in% timeframe_vector) %>% #filtering years yere
+  group_by(election_jurisdiction) %>% 
+  summarise(total_dollars = sum(dollar_amount)) %>% 
+  arrange(desc(total_dollars)) %>% 
+  inner_join(statepops, by = c("election_jurisdiction" = "state")) %>% 
+  mutate(
+    dollars_per1000ppl = (total_dollars / population) * 1000,
+    rank_dollars_per1000ppl = min_rank(desc(dollars_per1000ppl)),
+    rank_population = min_rank(desc(population))
+  ) %>% 
+  arrange(rank_dollars_per1000ppl)
+
+staterankings_topartycmtes_all %>% write_xlsx("output/staterankings_topartycmtes_all.xlsx")
+
+
+staterankings_tocombinedcandsparties <- contribs_combined_candspartycmtes %>% 
+  # filter(election_year %in% timeframe_vector) %>% #filtering years yere
+  group_by(election_jurisdiction) %>% 
+  summarise(total_dollars = sum(dollar_amount)) %>% 
+  arrange(desc(total_dollars)) %>% 
+  inner_join(statepops, by = c("election_jurisdiction" = "state")) %>% 
+  mutate(
+    dollars_per1000ppl = (total_dollars / population) * 1000,
+    rank_dollars_per1000ppl = min_rank(desc(dollars_per1000ppl)),
+    rank_population = min_rank(desc(population))
+  ) %>% 
+  arrange(rank_dollars_per1000ppl)
+
+staterankings_tocombinedcandsparties %>% write_xlsx("output/staterankings_tocombinedcandsparties.xlsx")
+
+
+contribs_tocands %>% 
+  count(election_year)
 
 
 ```
 
 
-<!-- Total to all from the pol unions -->
-<!-- 102,262	$148,949,602 -->
-
-<!-- Total to all by party - if party is coded for a record -->
-<!-- # of Records -->
-<!-- Total $ -->
-<!-- 	DEMOCRATIC	50,623	$47,143,367 -->
-<!-- 	REPUBLICAN	37,749	$27,422,053 -->
-<!-- 	NONPARTISAN	409	$544,807 -->
-<!-- 	THIRD-PARTY	558	$526,861 -->
-
-
-<!-- totals to Current officeholders only -->
-<!-- Total $ -->
-<!-- 	DEMOCRATIC	24,620	$23,110,171 -->
-<!-- 	REPUBLICAN	12,129	$8,971,135 -->
-<!-- 	NONPARTISAN	414	$441,374 -->
-<!-- 	THIRD-PARTY	192	$16,725 -->
 
 
 ## Lede
 
-It's been a long time coming, but recent weeks have finally brought about a sea change in public opinion toward police in the wake of George Floyd's death in Minneapolis.  
-  
-Police abuses of power and the targeting, and killing, of black Americans, has sent thousands of people into the streets to protest across the country on a scale not seen in decades. And surveys now show broad support nationwide for reforms to hold police accountable.
+It's been a long time coming, but recent weeks have finally brought about a sea change in public opinion toward police in the wake of George Floyd's death in Minneapolis. Police abuses of power and the targeting, and killing, of black Americans, has sent thousands of people into the streets to protest across the country on a scale not seen in decades. And surveys now show broad support nationwide for reforms to hold police accountable.
 
-But whether this moment translates into the political will strong enough to overcome police departments' repeated ability to thrwart efforts to change the system remains to be seen.  
-  
-The real test will be in the states themselves, where the police and their powerful unions are major players, having spent tens of millions of dollars to curry favor with state and local politicians. 
+But whether this moment translates into the political will strong enough to overcome police departments' repeated ability to thrwart efforts to change the system remains to be seen. The real test will be in the states themselves, where the police and their powerful unions are major players, having spent tens of millions of dollars to curry favor with state and local politicians. 
 
 In fact, police-affiliated unions have contributed nearly **$150 million** to state candidates, political parties and ballot initiatives across the United States since 2000, a new Bloomberg Industry Group analysis found.
 
-The majority of that money has gone to Democrats, who in some places have responded by blocking meaningful change to end excessive use of force, even after horrific incidents. Baltimore, where Freddie Gray died in police custody in YEAR as a result of a catastrophic neck injury, is exhibit A.
+The majority of that money has gone to Democrats, who in some places have responded by blocking meaningful change to end excessive use of force, even after horrific incidents. Minnesota's inaction after the 2016 death of Philando Castile could be exhibit A. Baltimore, where Freddie Gray died in police custody in 2015 as a result of a catastrophic neck injury, similarly failed to subsequently take meaningful action.
 
-Democrats received more than **$47 million** compared with Republicans' **$27 milion** over the last two decades, according to the analysis of campaign data compiled by the nonprofit National Institute on Money in Politics. 
+Democratic candidates recieved **$47 million** compared with Republicans' **$27 milion** over the last two decades, according to the analysis of campaign data compiled by the nonprofit National Institute on Money in Politics. State political party groups have also been on the receiving end of police union largesse, giving Democrats and additional **$19 million** and Republicans **$10 million**.
 
-The disparity is starker for those currently in power: Democratic state politicians holding office right now? They received more than **$23 million** from law enforcement unions over the course of their careers -- nearly triple that of their current Republican counterparts. 
+And the numerous Democratic state politicians holding office right now at this very moment? They've collectively received about **$23 million** from law enforcement unions over the course of their careers -- nearly triple that of their current Republican counterparts. 
 
-The puts Democrats in a bind given they TKTKTKTKTK.  
+To be sure, the analysis shows police groups favored the candidates with power - those who are already incumbents - more so than a particular party. More than **seven of every ten dollars** to candidates since 2000 went to **incumbents**. Even then, another quarter of the money went to contenders for open seats. Only four percent of contributions by police groups went to candidates challenging an incumbent.
 
-### Top donors, top cands
+That said, it doesn't take the pressure off Democrats, who are in a bind that they TKTKTKTKTK.... It's likely that TKTKTKTK....
+  
+  
+## Top candidates, top donors
 
-The top unions since 2000 for Democrats are heavily weighted toward California and New York, which given those states' populations is mostly to be expected. 
+Who are the candidates who have gotten the biggest bails of cash from police unions over the years? They include both the current Democratic governors of New York, **Andrew Cuomo**, and California, **Gavin Newsom**.
 
-```{r, echo=FALSE, warning=FALSE}
-topdonors_todemcands <- contribs_tocands %>% 
-  filter(general_party == "Democratic") %>% 
-  group_by(contributor) %>% 
-  summarise(total_dollars = sum(dollar_amount)) %>% 
-  arrange(desc(total_dollars)) %>% 
-  head(10)
-
-topdonors_todemcands %>% 
-  kable(format.args = list(big.mark = ",")) %>%
-  kable_styling(bootstrap_options = "striped", full_width = F, position = "left")
-
-
-
-```
-
-Here are the top union donors to Republican candidates...
-
-```{r, echo=FALSE}
-topdonors_togopcands <- contribs_tocands %>% 
-  filter(general_party == "Republican") %>% 
-  group_by(contributor) %>% 
-  summarise(total_dollars = sum(dollar_amount)) %>% 
-  arrange(desc(total_dollars)) %>% 
-  head(10)
-
-topdonors_togopcands %>% 
-  kable(format.args = list(big.mark = ",")) %>%
-  kable_styling(bootstrap_options = "striped", full_width = F, position = "left")
-
-
-```
-
-Who are the candidates who have gotten the biggest bails of cash from police unions? Here are the Democrats.
+Cuomo, along with the longtime state comptroller of New York, **Thomas DiNapoli**, top the list of any currently elected official by a wide margin - each man has received **north of $800,000**. (The champion overall, former California governor Gray Davis, hasn't been in office since the early 2000s; he was sent packing after an anti-establishment upheaval resulted in a 2003 recall election that scrambled California politics.)
 
 
 ```{r, echo=FALSE}
+
+#clean up Andrew Cuomo records to standardize his listings since they are recorded three ways
+contribs_tocands <- contribs_tocands %>% 
+  mutate(
+    candidate = if_else(candidate == "CUOMO, ANDREW M & DUFFY, ROBERT J", "CUOMO, ANDREW M", candidate),
+    candidate = if_else(candidate == "CUOMO, ANDREW M & HOCHUL, KATHLEEN COURTNEY (KATHY)", "CUOMO, ANDREW M", candidate)
+  )
 
 topcands_dem <- contribs_tocands %>% 
   filter(general_party == "Democratic") %>% 
@@ -125,7 +158,7 @@ topcands_dem %>%
 
 ```
 
-And the Republicans...
+And here are the **top Republicans**...
 
 
 ```{r, echo=FALSE}
@@ -140,6 +173,48 @@ topcands_gop <- contribs_tocands %>%
 topcands_gop %>% 
   kable(format.args = list(big.mark = ",")) %>%
   kable_styling(bootstrap_options = "striped", full_width = F, position = "left")
+
+
+```
+
+
+The **top police unions** since 2000 in total giving to both parties is perhaps not surprisingly concentrated among groups in California and New York...perhaps not surprising. The states here at the top are huge.
+
+```{r, echo=FALSE, warning=FALSE}
+topdonors <- contribs_combined_candspartycmtes %>% 
+  group_by(contributor) %>% 
+  summarise(total_dollars = sum(dollar_amount)) %>% 
+  arrange(desc(total_dollars)) %>% 
+  head(10)
+
+topdonors %>% 
+  kable(format.args = list(big.mark = ",")) %>%
+  kable_styling(bootstrap_options = "striped", full_width = F, position = "left")
+
+
+
+```
+
+## Where the money dominates
+
+But if we look at **state-by-state giving accounting for the populations**, we find something interesting.  
+
+Firstly, it turns out California and New York *still* top the list even after adjusting for their populations.  
+  
+But perhaps more strikingly are the smaller states that have a *substantially larger* amount of police union contributions. In the case of Rhode Island, Arkansas and Delaware, we're talking about some of the least-populated states in the country. And yet while they rank **at the bottom by population**, they're among the **highest ranked for per-capita police contributions**.
+
+```{r, echo=FALSE}
+staterankings_tocombinedcandsparties %>% 
+  head(10) %>% 
+  mutate(
+    total_dollars = scales::dollar(total_dollars),
+    dollars_per1000ppl = scales::dollar(dollars_per1000ppl)
+) %>% 
+  kable(format.args = list(big.mark = ",")) %>%
+  kable_styling(bootstrap_options = "striped", full_width = F, position = "left") %>% 
+  column_spec(6, bold = T, color = "purple") %>% 
+  column_spec(5, bold = T, color = "red") %>% 
+  column_spec(1, bold = T, color = "black") 
 
 
 ```

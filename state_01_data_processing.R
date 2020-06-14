@@ -3,6 +3,16 @@
 library(tidyverse)
 library(janitor)
 library(lubridate)
+library(readxl)
+library(tidycensus)
+
+
+### bring in list of verdicts for first responders gone through manually
+firstrespondlist_forfiltering <- read_excel("processed_data/firstrespondlist_forfiltering.xlsx")
+
+nixlist_vector <- firstrespondlist_forfiltering %>% 
+  filter(includes_police != "Y") %>% 
+  pull(contributor)
 
 
 # function to clean and format the FTM files
@@ -18,7 +28,8 @@ process_ftm_table <- function(rawdata){
       dollar_amount = as.numeric(dollar_amount)
     ) %>% 
     #filter for just organizations
-    filter(type_of_contributor == "Non-Individual")
+    filter(type_of_contributor == "Non-Individual",
+           !contributor %in% nixlist_vector)
   return(cleandata)
   }
 
@@ -30,6 +41,10 @@ raw_contribs_topartycmtes <- read_csv("raw_data/FTM_pu_contributions_to_partycmt
 
 #run the function
 contribs_topartycmtes <- process_ftm_table(raw_contribs_topartycmtes)
+
+contribs_topartycmtes %>% 
+  group_by(specific_business) %>% 
+  summarise(sum(dollar_amount))
 
 #save results to file
 saveRDS(contribs_topartycmtes, "processed_data/contribs_topartycmtes.rds")
@@ -49,6 +64,11 @@ raw_contribs_tocands <- read_csv("raw_data/FTM_pu_contributions_to_candidates.cs
 #run the function
 contribs_tocands <- process_ftm_table(raw_contribs_tocands)
 
+contribs_tocands %>% 
+  group_by(specific_business) %>% 
+  summarise(sum(dollar_amount))
+
+
 #save results to file
 saveRDS(contribs_tocands, "processed_data/contribs_tocands.rds")
 write_csv(contribs_tocands, "processed_data/contribs_tocands.csv")
@@ -59,12 +79,67 @@ contribs_tocands %>%
 
 
 
+#### COMBINE candidate and party cmte contribs into a single table ####
+#  using just certain selected columns 
+
+contribs_combined_candspartycmtes <- contribs_tocands %>% 
+  select(
+    election_jurisdiction,
+    party = general_party,
+    recipient = candidate,
+    election_year,
+    contributor,
+    specific_business,
+    number_of_records,
+    dollar_amount    
+  ) %>% 
+  mutate(
+    recipient_type = "candidate"
+  ) %>% 
+        bind_rows(  #append one df to the other
+contribs_topartycmtes %>% 
+  select(
+    election_jurisdiction,
+    party,
+    recipient = party_committee,
+    election_year,
+    contributor,
+    specific_business,
+    number_of_records,
+    dollar_amount    
+  ) %>% 
+  mutate(
+    recipient_type = "party committee"
+  ) 
+) %>% 
+#column order tweak of combined table
+  select(
+    election_jurisdiction, party, recipient, recipient_type, everything()
+  )
+
+#let's see what we have now
+contribs_combined_candspartycmtes
+
+#total money?
+contribs_combined_candspartycmtes %>% 
+  summarise(sum(dollar_amount))
+
+#save results to file
+saveRDS(contribs_combined_candspartycmtes, "processed_data/contribs_combined_candspartycmtes.rds")
+write_csv(contribs_combined_candspartycmtes, "processed_data/contribs_combined_candspartycmtes.csv")
+
+
+
 ### BALLOT MEASURES ####
 
 raw_contribs_toballotmeasures <- read_csv("raw_data/FTM_pu_contributions_to_ballotmeasures.csv", col_types = cols(.default = "c"))
 
 #run the function
 contribs_toballotmeasures <- process_ftm_table(raw_contribs_toballotmeasures)
+
+contribs_toballotmeasures %>% 
+  group_by(specific_business) %>% 
+  summarise(sum(dollar_amount))
 
 #save results to file
 saveRDS(contribs_toballotmeasures, "processed_data/contribs_toballotmeasures.rds")
@@ -120,6 +195,7 @@ grandtotals_alldonors_tocandidates %>%
 
 
 
+
 ### *TRANSACTION-LEVEL* DATA ON CONTRIBS TO CANDIDATES ####
 #this level of detail less needed for this analysis but just in case
 
@@ -132,10 +208,12 @@ transactionlevel_to_candidates <- raw_transactionlevel_to_candidates %>%
   select(!ends_with(c(":id", ":token")), -request) %>% 
   clean_names() %>% 
   rename(dollar_amount = amount) %>% 
+  filter(type_of_contributor == "Non-Individual",
+         !contributor %in% nixlist_vector) %>% 
   #format columns
   mutate(
     dollar_amount = as.numeric(dollar_amount),
-    date = ymd(date)
+    date = ymd(date) 
   ) 
 
 #save results to file
@@ -147,51 +225,52 @@ transactionlevel_to_candidates %>%
 
 
 
-### CURRENT OFFICEHOLDERS - AGGREGATE STATE AND PARTY ####
+#### STATE CENSUS POPULATIONS ####
 
-raw_currentoffice_agg_state_party <- read_csv("raw_data/FTM_pu_currentofficeholders_agg_state_party.csv")
+statepops <- get_acs(
+    geography = "state",
+    variables = c(pop = "B02001_001"),
+    survey = "acs5") 
 
-#earlier function won't work because different columns here. So do it directly instead
-currentoffice_agg_state_party <- raw_currentoffice_agg_state_party %>% 
-  select(!ends_with(c(":id", ":token")), -request) %>% 
-  clean_names() %>% 
-  rename(dollar_amount = total) %>% 
-  #format columns
-  mutate(
-    dollar_amount = as.numeric(dollar_amount),
-    number_of_records = as.integer(number_of_records)
-  ) 
+fips <- fips_codes %>% 
+  distinct(state, state_code)  
+  
+statepops <- inner_join(statepops, fips, by = c("GEOID" = "state_code"))
 
-#save results to file
-saveRDS(currentoffice_agg_state_party, "processed_data/currentoffice_agg_state_party.rds")
+statepops <- statepops %>% 
+  select(state, population = estimate)
 
-#total money?
-currentoffice_agg_state_party %>% 
-  summarise(sum(dollar_amount))
+saveRDS(statepops, "processed_data/statepops.rds")
+write_csv(statepops, "processed_data/statepops.csv")
 
 
 
+# 
+# 
+# #### FILTERING OUT SOME UNIONS ####
+# 
+# #Emergency Responder categories sometimes includes police, sometimes just fire? Let's take a look
+# e1 <- currentofficeholders_byparty %>% 
+#   filter(specific_business == "Emergency responder unions and associations") 
+# 
+# e2 <- contribs_tocands %>% 
+#   filter(specific_business == "Emergency responder unions and associations") 
+# 
+# e3 <- contribs_topartycmtes %>% 
+#   filter(specific_business == "Emergency responder unions and associations") 
+# 
+# e4 <- contribs_toballotmeasures %>% 
+#   filter(specific_business == "Emergency responder unions and associations") 
+# 
+# e_all <- bind_rows(e1, e2, e3, e4) 
+# 
+# e_distinct <- e_all %>% 
+#             distinct(contributor)
+# 
+# e_distinct %>%
+#   write_csv("processed_data/firstrespondlist.csv")
 
-#### FILTERING OUT SOME UNIONS ####
+## ****The results of the filtering manually that followed now used at the top of this script**
 
-#Emergency Responder categories sometimes includes police, sometimes just fire? Let's take a look
-e1 <- currentofficeholders_byparty %>% 
-  filter(specific_business == "Emergency responder unions and associations") 
 
-e2 <- contribs_tocands %>% 
-  filter(specific_business == "Emergency responder unions and associations") 
-
-e3 <- contribs_topartycmtes %>% 
-  filter(specific_business == "Emergency responder unions and associations") 
-
-e4 <- contribs_toballotmeasures %>% 
-  filter(specific_business == "Emergency responder unions and associations") 
-
-e_all <- bind_rows(e1, e2, e3, e4) 
-
-e_distinct <- e_all %>% 
-            distinct(contributor)
-
-e_distinct %>%
-  write_csv("processed_data/firstrespondlist.csv")
 
