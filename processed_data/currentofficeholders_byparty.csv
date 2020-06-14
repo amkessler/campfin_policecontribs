@@ -1,41 +1,31 @@
 general_party,contributor,type_of_contributor,specific_business,general_industry,broad_sector,number_of_records,dollar_amount
-Democratic,CALIFORNIA CORRECTIONAL PEACE OFFICERS ASSOCIATION,Non-Individual,Corrections officers unions and associations,Public Sector Unions,Labor,917,2119172.46
 Democratic,PEACE OFFICERS RESEARCH ASSOCIATION OF CALIFORNIA,Non-Individual,Police unions & associations,Public Sector Unions,Labor,798,1887997
 Democratic,CALIFORNIA ASSOCIATION OF HIGHWAY PATROLMEN,Non-Individual,Police unions & associations,Public Sector Unions,Labor,619,1199599.77
 Democratic,CALIFORNIA STATEWIDE LAW ENFORCEMENT ASSOCIATION,Non-Individual,Police unions & associations,Public Sector Unions,Labor,513,853365.13
 Democratic,NEW JERSEY STATE PBA LOCAL 600,Non-Individual,Police unions & associations,Public Sector Unions,Labor,629,799925
 Democratic,LOS ANGELES POLICE PROTECTIVE LEAGUE,Non-Individual,Police unions & associations,Public Sector Unions,Labor,265,757625
 Democratic,NEW YORK STATE TROOPERS PBA,Non-Individual,Police unions & associations,Public Sector Unions,Labor,476,706878.2
-Democratic,NEW YORK STATE CORRECTIONAL OFFICERS,Non-Individual,Corrections officers unions and associations,Public Sector Unions,Labor,439,673935
-Republican,NEW YORK STATE CORRECTIONAL OFFICERS,Non-Individual,Corrections officers unions and associations,Public Sector Unions,Labor,441,540030
 Democratic,POLICE BENEVOLENT ASSOCIATION OF THE CITY OF NEW YORK,Non-Individual,Police unions & associations,Public Sector Unions,Labor,527,525026
-Democratic,CORRECTION OFFCIERS BENEVOLENT ASSOCIATION,Non-Individual,Corrections officers unions and associations,Public Sector Unions,Labor,258,507215
-Republican,CALIFORNIA CORRECTIONAL PEACE OFFICERS ASSOCIATION,Non-Individual,Corrections officers unions and associations,Public Sector Unions,Labor,223,504150
 Democratic,NASSAU COUNTY POLICE BENEVOLENT ASSOCIATION,Non-Individual,Police unions & associations,Public Sector Unions,Labor,246,480350
 Democratic,ASSOCIATION FOR LOS ANGELES DEPUTY SHERIFFS,Non-Individual,Police unions & associations,Public Sector Unions,Labor,237,407600
 Republican,PEACE OFFICERS RESEARCH ASSOCIATION OF CALIFORNIA,Non-Individual,Police unions & associations,Public Sector Unions,Labor,182,379550
 Republican,HOUSTON POLICE OFFICERS UNION,Non-Individual,Police unions & associations,Public Sector Unions,Labor,142,374000
 Democratic,PENNSYLVANIA STATE TROOPERS ASSOCIATION,Non-Individual,Police unions & associations,Public Sector Unions,Labor,270,367025
-Democratic,PENNSYLVANIA STATE CORRECTIONS OFFICES ASSOCIATION,Non-Individual,Corrections officers unions and associations,Public Sector Unions,Labor,198,359650
 Democratic,HOUSTON POLICE OFFICERS UNION,Non-Individual,Police unions & associations,Public Sector Unions,Labor,132,357226.97
 Republican,PENNSYLVANIA STATE TROOPERS ASSOCIATION,Non-Individual,Police unions & associations,Public Sector Unions,Labor,297,347937.11
 Democratic,LOS ANGELES COUNTY PROFESSIONAL PEACE OFFICERS ASSOCIATION,Non-Individual,Police unions & associations,Public Sector Unions,Labor,236,332375
 Democratic,PORT AUTHORITY PBA,Non-Individual,Police unions & associations,Public Sector Unions,Labor,162,305700
-Republican,TEXAS CORRECTIONAL OFFICERS,Non-Individual,Corrections officers unions and associations,Public Sector Unions,Labor,73,296500
 Democratic,POLICE BENEVOLENT ASSOCIATION OF NEW YORK STATE,Non-Individual,Police unions & associations,Public Sector Unions,Labor,442,267269
 Democratic,LAS VEGAS POLICE PROTECTIVE ASSOCIATION CIVILIAN EMPLOYEES,Non-Individual,Police unions & associations,Public Sector Unions,Labor,121,257600
-Republican,PENNSYLVANIA STATE CORRECTIONS OFFICES ASSOCIATION,Non-Individual,Corrections officers unions and associations,Public Sector Unions,Labor,189,252300
 Republican,VIRGINIA SHERIFFS ASSOCIATION,Non-Individual,Police unions & associations,Public Sector Unions,Labor,550,234893.95
 Republican,NEW YORK STATE TROOPERS PBA,Non-Individual,Police unions & associations,Public Sector Unions,Labor,262,234453.87
 Republican,FLORIDA POLICE BENEVOLENT ASSOCIATION,Non-Individual,Police unions & associations,Public Sector Unions,Labor,339,233931.87
 Democratic,FLORIDA POLICE BENEVOLENT ASSOCIATION,Non-Individual,Police unions & associations,Public Sector Unions,Labor,265,231000
 Republican,CALIFORNIA ASSOCIATION OF HIGHWAY PATROLMEN,Non-Individual,Police unions & associations,Public Sector Unions,Labor,138,226450
-Democratic,MASSACHUSETTS CORRECTIONS OFFICERS FEDERAL UNION,Non-Individual,Corrections officers unions and associations,Public Sector Unions,Labor,568,224403.93
 Republican,NEW JERSEY STATE PBA LOCAL 600,Non-Individual,Police unions & associations,Public Sector Unions,Labor,215,219986.66
 Democratic,ASSOCIATION OF ORANGE COUNTY DEPUTY SHERIFFS,Non-Individual,Police unions & associations,Public Sector Unions,Labor,85,214924.85
 Democratic,STATE POLICE ASSOCIATION OF MASSACHUSETTS,Non-Individual,Police unions & associations,Public Sector Unions,Labor,534,212275
 Republican,LOUISIANA SHERIFFS & DEPUTIES ASSOCIATION,Non-Individual,Police unions & associations,Public Sector Unions,Labor,197,207599.2
-Democratic,RHODE ISLAND BROTHERHOOD OF CORRECTIONAL OFFICERS,Non-Individual,Corrections officers unions and associations,Public Sector Unions,Labor,560,200951
 Democratic,WASHINGTON COUNCIL OF POLICE & SHERIFFS,Non-Individual,Police unions & associations,Public Sector Unions,Labor,314,187925
 Democratic,WASHINGTON STATE PATROL TROOPERS ASSOCIATION,Non-Individual,Police unions & associations,Public Sector Unions,Labor,217,182075
 Republican,SOUTHERN STATES POLICE BENEVOLENT ASSOCIATION,Non-Individual,Police unions & associations,Public Sector Unions,Labor,155,174697.34
@@ -66,7 +56,6 @@ Republican,NASSAU COUNTY POLICE BENEVOLENT ASSOCIATION,Non-Individual,Police uni
 Republican,TEXAS MUNICIPAL POLICE ASSOCIATION,Non-Individual,Police unions & associations,Public Sector Unions,Labor,131,105135
 Democratic,NEWARK FRATERNAL ORDER POLICE LODGE 12,Non-Individual,Police unions & associations,Public Sector Unions,Labor,229,103340
 Democratic,PENNSYLVANIA STATE LODGE FRATERNAL ORDER OF POLICE,Non-Individual,Police unions & associations,Public Sector Unions,Labor,281,102540
-Democratic,NASSAU COUNTY CORRECTIONS OFFICERS ASSOCIATION,Non-Individual,Corrections officers unions and associations,Public Sector Unions,Labor,114,102450
 Republican,SUFFOLK COUNTY DETECTIVES ASSOCIATION,Non-Individual,Police unions & associations,Public Sector Unions,Labor,284,101800
 Democratic,NASSAU COUNTY POLICE SUPERIOR OFFICERS ASSOCIATION,Non-Individual,Police unions & associations,Public Sector Unions,Labor,202,100380
 Republican,NEW JERSEY STATE TROOPERS FRATERNAL ASSOCIATION,Non-Individual,Police unions & associations,Public Sector Unions,Labor,132,99080
@@ -74,7 +63,6 @@ Democratic,LOUISIANA SHERIFFS & DEPUTIES ASSOCIATION,Non-Individual,Police union
 Republican,COMBINED LAW ENFORCEMENT ASSOCIATION OF TEXAS,Non-Individual,Police unions & associations,Public Sector Unions,Labor,121,92407.33
 Republican,FRATERNAL ORDER OF POLICE LODGE 123,Non-Individual,Police unions & associations,Public Sector Unions,Labor,76,90850
 Democratic,DALLAS POLICE OFFICERS ASSOCIATION,Non-Individual,Police unions & associations,Public Sector Unions,Labor,82,89569.45
-Republican,CORRECTION OFFCIERS BENEVOLENT ASSOCIATION,Non-Individual,Corrections officers unions and associations,Public Sector Unions,Labor,63,87575
 Democratic,SACRAMENTO COUNTY DEPUTY SHERIFFS ASSOCIATION,Non-Individual,Police unions & associations,Public Sector Unions,Labor,29,84351.74
 Democratic,ILLINOIS FRATERNAL ORDER OF POLICE LABOR COUNCIL,Non-Individual,Police unions & associations,Public Sector Unions,Labor,127,82450
 Republican,FORT WORTH POLICE OFFICERS ASSOCIATION,Non-Individual,Police unions & associations,Public Sector Unions,Labor,30,82151.09
@@ -106,13 +94,11 @@ Republican,OHIO STATE FRATERNAL ORDER OF POLICE,Non-Individual,Police unions & a
 Republican,MICHIGAN STATE POLICE TROOPERS ASSOCIATION,Non-Individual,Police unions & associations,Public Sector Unions,Labor,107,60650
 Republican,LOS ANGELES POLICE PROTECTIVE LEAGUE,Non-Individual,Police unions & associations,Public Sector Unions,Labor,22,60300
 Democratic,BRIDGE & TUNNEL OFFICERS PBA,Non-Individual,Police unions & associations,Public Sector Unions,Labor,187,59747.5
-Nonpartisan,CALIFORNIA CORRECTIONAL PEACE OFFICERS ASSOCIATION,Non-Individual,Corrections officers unions and associations,Public Sector Unions,Labor,20,59400
 Democratic,RHODE ISLAND TROOPER ASSOCIATION,Non-Individual,Police unions & associations,Public Sector Unions,Labor,149,57700
 Republican,PORT AUTHORITY PBA,Non-Individual,Police unions & associations,Public Sector Unions,Labor,66,57150
 Democratic,FRATERNAL ORDER OF POLICE LODGE 5,Non-Individual,Police unions & associations,Public Sector Unions,Labor,76,56700
 Democratic,POLICE ASSOCIATION OF YONKERS,Non-Individual,Police unions & associations,Public Sector Unions,Labor,55,56250
 Democratic,SANTA ANA POLICE OFFICERS ASSOCIATION,Non-Individual,Police unions & associations,Public Sector Unions,Labor,38,54946.19
-Republican,SUFFOLK COUNTY CORRECTION OFFICERS ASSOCIATION,Non-Individual,Corrections officers unions and associations,Public Sector Unions,Labor,116,54935
 Republican,MILWAUKEE POLICE ASSOCIATION,Non-Individual,Police unions & associations,Public Sector Unions,Labor,120,54050
 Democratic,FAIRFAX COALITION OF POLICE LOCAL 5000,Non-Individual,Police unions & associations,Public Sector Unions,Labor,10,53878.28
 Democratic,BALTIMORE CITY FRATERNAL ORDER OF POLICE LODGE 3,Non-Individual,Police unions & associations,Public Sector Unions,Labor,86,53675
@@ -126,7 +112,6 @@ Republican,NASSAU COUNTY POLICE SUPERIOR OFFICERS ASSOCIATION,Non-Individual,Pol
 Republican,LAW ENFORCEMENT OFFICERS UNION COUNCIL 82,Non-Individual,Police unions & associations,Public Sector Unions,Labor,66,44250
 Democratic,FRATERNAL ORDER OF POLICE ASSOCIATES / FOP,Non-Individual,Police unions & associations,Public Sector Unions,Labor,21,43750
 Democratic,NASHVILLE FRATERNAL ORDER OF POLICE LODGE 5,Non-Individual,Police unions & associations,Public Sector Unions,Labor,22,43500
-Democratic,WESTCHESTER COUNTY CORRECTIONS OFFICERS BENEVOLENT ASSOCIATION,Non-Individual,Corrections officers unions and associations,Public Sector Unions,Labor,108,42125
 Democratic,MINNESOTA PEACE & POLICE OFFICERS ASSOCIATION,Non-Individual,Police unions & associations,Public Sector Unions,Labor,63,42063
 Democratic,MONTGOMERY COUNTY FRATERNAL ORDER OF POLICE LODGE 35,Non-Individual,Police unions & associations,Public Sector Unions,Labor,57,42050
 Democratic,POLICE BENEVOLENT ASSOCIATION LOCAL 105,Non-Individual,Police unions & associations,Public Sector Unions,Labor,56,42046.66
@@ -145,7 +130,6 @@ Democratic,TEXAS DEPARTMENT OF PUBLIC SAFETY OFFICERS ASSOCIATION,Non-Individual
 Republican,SUFFOLK COUNTY SHERIFFS PBA,Non-Individual,Police unions & associations,Public Sector Unions,Labor,82,33860
 Democratic,FORT WORTH POLICE OFFICERS ASSOCIATION,Non-Individual,Police unions & associations,Public Sector Unions,Labor,13,33000
 Nonpartisan,RICHMOND POLICE OFFICERS ASSOCIATION,Non-Individual,Police unions & associations,Public Sector Unions,Labor,13,32800
-Democratic,CORRECTIONS OFFICERS ASSOCIATION OF DELAWARE,Non-Individual,Corrections officers unions and associations,Public Sector Unions,Labor,98,32550
 Democratic,MASSACHUSETTS ENVIRONMENTAL POLICE OFFICERS ASSOCIATION,Non-Individual,Police unions & associations,Public Sector Unions,Labor,108,31720
 Republican,WASHINGTON STATE FRATERNAL ORDER OF POLICE,Non-Individual,Police unions & associations,Public Sector Unions,Labor,34,31500
 Republican,POLICE CONFERENCE OF NEW YORK,Non-Individual,Police unions & associations,Public Sector Unions,Labor,70,31395
@@ -153,12 +137,10 @@ Republican,SACRAMENTO COUNTY DEPUTY SHERIFFS ASSOCIATION,Non-Individual,Police u
 Republican,TULSA FRATERNAL ORDER OF POLICE LODGE 93,Non-Individual,Police unions & associations,Public Sector Unions,Labor,46,31000
 Democratic,CONTRA COSTA COUNTY DEPUTY SHERIFFS ASSOCIATION,Non-Individual,Police unions & associations,Public Sector Unions,Labor,26,30995
 Democratic,DELAWARE STATE TROOPERS ASSOCIATION,Non-Individual,Police unions & associations,Public Sector Unions,Labor,150,30060
-Democratic,CORRECTION CAPTAINS ASSOCIATION,Non-Individual,Corrections officers unions and associations,Public Sector Unions,Labor,110,29325
 Democratic,NEW ENGLAND POLICE BENEVOLENT ASSOCIATION,Non-Individual,Police unions & associations,Public Sector Unions,Labor,118,29325
 Democratic,STATE LAW ENFORCEMENT OFFICERS LABOR ALLIANCE,Non-Individual,Police unions & associations,Public Sector Unions,Labor,82,29150
 Democratic,VENTURA COUNTY PROFESSIONAL PEACE OFFICERS ASSOCIATION,Non-Individual,Police unions & associations,Public Sector Unions,Labor,14,28700
 Democratic,LAW ENFORCEMENT FOR RESPONSIBLE PUBLIC SAFETY,Non-Individual,Police unions & associations,Public Sector Unions,Labor,31,28575
-Democratic,WEST COUNTY DEPARTMENT OF CORRECTIONS SUPERIOR OFFICERS ASSOCIATION,Non-Individual,Corrections officers unions and associations,Public Sector Unions,Labor,71,28395
 Democratic,LIEUTENANTS BENEVOLENT ASSOCIATION OF NEW YORK CITY POLICE DEPARTMENT,Non-Individual,Police unions & associations,Public Sector Unions,Labor,65,28200
 Democratic,LOS ANGELES AIRPORT PEACE OFFICERS ASSOCIATION,Non-Individual,Police unions & associations,Public Sector Unions,Labor,32,28200
 Democratic,OAKLAND POLICE OFFICERS ASSOCIATION,Non-Individual,Police unions & associations,Public Sector Unions,Labor,16,28050
@@ -166,9 +148,7 @@ Democratic,WESTCHESTER COUNTY DEPARTMENT OF PUBLIC SAFETY POLICE BENEVOLENT ASSO
 Democratic,LOS ANGELES SCHOOL POLICE MANAGEMENT ASSOCIATION,Non-Individual,Police unions & associations,Public Sector Unions,Labor,19,27850
 Democratic,ANCHORAGE POLICE DEPARTMENT EMPLOYEES ASSOCIATIION,Non-Individual,Police unions & associations,Public Sector Unions,Labor,30,27500
 Democratic,PUBLIC SAFETY EMPLOYEE ASSOCIATION,Non-Individual,Police unions & associations,Public Sector Unions,Labor,43,27450
-Republican,NASSAU COUNTY CORRECTIONS OFFICERS ASSOCIATION,Non-Individual,Corrections officers unions and associations,Public Sector Unions,Labor,64,27450
 Democratic,BUFFALO PBA,Non-Individual,Police unions & associations,Public Sector Unions,Labor,61,27225
-Democratic,SANTA CLARA COUNTY CORRECTIONAL PEACE OFFICERS ASSOCIATION,Non-Individual,Corrections officers unions and associations,Public Sector Unions,Labor,13,26950
 Democratic,STATE OF HAWAII ORGANIZATION OF POLICE OFFICERS,Non-Individual,Police unions & associations,Public Sector Unions,Labor,56,26350
 Democratic,PATERSON PBA LOCAL 1,Non-Individual,Police unions & associations,Public Sector Unions,Labor,42,26350
 Democratic,NATIVE AMERICANS & PEACE OFFICERS,Non-Individual,Police unions & associations,Public Sector Unions,Labor,2,26000
@@ -176,7 +156,6 @@ Nonpartisan,OMAHA POLICE LOCAL 101,Non-Individual,Police unions & associations,P
 Democratic,MARSHAL ASSOCIATION OF CITY OF NEW YORK,Non-Individual,Police unions & associations,Public Sector Unions,Labor,80,25775
 Republican,LAS VEGAS POLICE PROTECTIVE ASSOCIATION CIVILIAN EMPLOYEES,Non-Individual,Police unions & associations,Public Sector Unions,Labor,11,25750
 Democratic,POLICE OFFICERS ASSOCIATION OF MICHIGAN,Non-Individual,Police unions & associations,Public Sector Unions,Labor,62,25725
-Democratic,SUFFOLK COUNTY CORRECTION OFFICERS ASSOCIATION,Non-Individual,Corrections officers unions and associations,Public Sector Unions,Labor,79,25625
 Democratic,ILLINOIS SHERIFFS ASSOCIATION,Non-Individual,Police unions & associations,Public Sector Unions,Labor,42,25350
 Republican,BUCKEYE STATE SHERIFFS ASSOCIATION,Non-Individual,Police unions & associations,Public Sector Unions,Labor,47,25200
 Republican,INDIANA STATE LODGE FRATERNAL ORDER OF POLICE,Non-Individual,Police unions & associations,Public Sector Unions,Labor,80,25090
@@ -201,7 +180,6 @@ Republican,FRATERNAL ORDER OF POLICE INDIANA STATE LODGE,Non-Individual,Police u
 Republican,ILLINOIS STATE POLICE COMMAND OFFICERS ASSOCIATION,Non-Individual,Police unions & associations,Public Sector Unions,Labor,26,20225
 Republican,SAN ANTONIO POLICE OFFICERS ASSOCIATION,Non-Individual,Police unions & associations,Public Sector Unions,Labor,18,20007
 Democratic,ORANGE COUNTY COALITION OF POLICE & SHERIFFS,Non-Individual,Police unions & associations,Public Sector Unions,Labor,7,19900
-Republican,MASSACHUSETTS CORRECTIONS OFFICERS FEDERAL UNION,Non-Individual,Corrections officers unions and associations,Public Sector Unions,Labor,57,19900
 Republican,PUBLIC SAFETY EMPLOYEE ASSOCIATION,Non-Individual,Police unions & associations,Public Sector Unions,Labor,28,19750
 Democratic,ANNE ARUNDEL COUNTY FRATERNAL ORDER OF POLICE LODGE 70,Non-Individual,Police unions & associations,Public Sector Unions,Labor,22,19250
 Democratic,MASSACHUSETTS COALITION OF POLICE,Non-Individual,Police unions & associations,Public Sector Unions,Labor,78,19250
@@ -219,7 +197,6 @@ Republican,STATE POLICE ASSOCIATION OF MASSACHUSETTS,Non-Individual,Police union
 Democratic,STATE TROOPERS SUPERIOR OFFICERS ASSOCIATION OF NEW JERSEY,Non-Individual,Police unions & associations,Public Sector Unions,Labor,18,16750
 Democratic,LAW ENFORCEMENT MANAGERS ASSOCIATION,Non-Individual,Police unions & associations,Public Sector Unions,Labor,4,16500
 Republican,NEWARK FRATERNAL ORDER POLICE LODGE 12,Non-Individual,Police unions & associations,Public Sector Unions,Labor,42,16425
-Democratic,ALASKA CORRECTIONAL OFFICERS ASSOCIATION,Non-Individual,Corrections officers unions and associations,Public Sector Unions,Labor,22,16400
 Democratic,MINNEAPOLIS POLICE RELIEF ASSOCIATION,Non-Individual,Police unions & associations,Public Sector Unions,Labor,61,16300
 Democratic,MARYLAND FRATERNAL ORDER OF POLICE,Non-Individual,Police unions & associations,Public Sector Unions,Labor,32,16200
 Democratic,MARYLAND TROOPERS ASSOCIATION,Non-Individual,Police unions & associations,Public Sector Unions,Labor,82,16070
@@ -240,7 +217,6 @@ Republican,STATE POLICE OFFICERS COUNCIL,Non-Individual,Police unions & associat
 Democratic,DEPUTY SHERIFFS ASSOCIATION OF ALAMEDA COUNTY,Non-Individual,Police unions & associations,Public Sector Unions,Labor,9,15000
 Democratic,ERIE COUNTY SHERIFFS PBA,Non-Individual,Police unions & associations,Public Sector Unions,Labor,21,14900
 Republican,ARIZONA STATE LODGE FRATERNAL ORDER OF POLICE,Non-Individual,Police unions & associations,Public Sector Unions,Labor,116,14774
-Republican,CORRECTIONS OFFICERS ASSOCIATION OF DELAWARE,Non-Individual,Corrections officers unions and associations,Public Sector Unions,Labor,36,14700
 Republican,ST LOUIS POLICE OFFICERS ASSOCIATION,Non-Individual,Police unions & associations,Public Sector Unions,Labor,38,14550
 Democratic,JACKSONVILLE FRATERNAL ORDER OF POLICE LODGE 5-30,Non-Individual,Police unions & associations,Public Sector Unions,Labor,17,14500
 Democratic,FRATERNAL ORDER OF POLICE LODGE 123,Non-Individual,Police unions & associations,Public Sector Unions,Labor,22,14500
@@ -266,14 +242,11 @@ Democratic,SOUTHERN NEVADACONFERENCE OF POLICE & SHERIFFS,Non-Individual,Police 
 Democratic,SERGEANTS BENEVOLENT ASSOCIATION PORT AUTHORITY OF NY/NJ,Non-Individual,Police unions & associations,Public Sector Unions,Labor,2,12500
 Democratic,ARLINGTON POLICE ASSOCIATION,Non-Individual,Police unions & associations,Public Sector Unions,Labor,11,12444.87
 Democratic,OREGON COUNCIL OF POLICE ASSOCIATIONS,Non-Individual,Police unions & associations,Public Sector Unions,Labor,34,12400
-Democratic,MICHIGAN CORRECTIONS ORGANIZATION LOCAL 526M,Non-Individual,Corrections officers unions and associations,Public Sector Unions,Labor,19,12200
 Republican,BRIDGE & TUNNEL OFFICERS PBA,Non-Individual,Police unions & associations,Public Sector Unions,Labor,51,11785
 Republican,MESA POLICE ASSOCIATION,Non-Individual,Police unions & associations,Public Sector Unions,Labor,28,11700
-Democratic,ALLEGHENY COUNTY CORRECTIONS OFFICERS,Non-Individual,Corrections officers unions and associations,Public Sector Unions,Labor,27,11650
 Democratic,ASSOCIATION OF MONTANA TROOPERS,Non-Individual,Police unions & associations,Public Sector Unions,Labor,67,11650
 Democratic,WISCONSIN PROFESSIONAL POLICE ASSOCIATION,Non-Individual,Police unions & associations,Public Sector Unions,Labor,15,11500
 Democratic,BROWARD COUNTY PBA,Non-Individual,Police unions & associations,Public Sector Unions,Labor,27,11500
-Democratic,ASSOCIATION OF OREGON CORRECTIONS EMPLOYEES,Non-Individual,Corrections officers unions and associations,Public Sector Unions,Labor,8,11500
 Republican,FRATERNAL ORDER OF POLICE ASSOCIATES / FOP,Non-Individual,Police unions & associations,Public Sector Unions,Labor,5,11500
 Republican,DADE COUNTY PBA,Non-Individual,Police unions & associations,Public Sector Unions,Labor,16,11500
 Republican,BOSTON POLICE PATROLMENS ASSOCIATION,Non-Individual,Police unions & associations,Public Sector Unions,Labor,24,11450
@@ -296,7 +269,6 @@ Republican,HARFORD COUNTY DEPUTY SHERIFFS LOCAL 838,Non-Individual,Police unions
 Republican,TENNESSEE STATE LODGE FRATERNAL ORDER OF POLICE,Non-Individual,Police unions & associations,Public Sector Unions,Labor,8,10000
 Nonpartisan,FLORIDA POLICE BENEVOLENT ASSOCIATION,Non-Individual,Police unions & associations,Public Sector Unions,Labor,17,10000
 Democratic,CONCORD POLICE ASSOCIATION,Non-Individual,Police unions & associations,Public Sector Unions,Labor,3,9900
-Republican,ALASKA CORRECTIONAL OFFICERS ASSOCIATION,Non-Individual,Corrections officers unions and associations,Public Sector Unions,Labor,20,9900
 Democratic,ST LOUIS COUNTY POLICE ASSOCIATION FRATERNAL ORDER OF POLICE LODGE 111,Non-Individual,Police unions & associations,Public Sector Unions,Labor,10,9550
 Democratic,ALASKA STATE TROOPERS CHAPTER,Non-Individual,Police unions & associations,Public Sector Unions,Labor,12,9500
 Democratic,STATE POLICE OFFICERS COUNCIL,Non-Individual,Police unions & associations,Public Sector Unions,Labor,63,9500
@@ -330,7 +302,6 @@ Democratic,ONTARIO POLICE OFFICERS ASSOCIATION,Non-Individual,Police unions & as
 Nonpartisan,LOS ANGELES SCHOOL POLICE MANAGEMENT ASSOCIATION,Non-Individual,Police unions & associations,Public Sector Unions,Labor,1,7300
 Republican,MARYLAND TROOPERS ASSOCIATION,Non-Individual,Police unions & associations,Public Sector Unions,Labor,48,7275
 Democratic,SANTA MONICA POLICE OFFICERS ASSOCIATION,Non-Individual,Police unions & associations,Public Sector Unions,Labor,10,7250
-Republican,WESTCHESTER COUNTY CORRECTIONS OFFICERS BENEVOLENT ASSOCIATION,Non-Individual,Corrections officers unions and associations,Public Sector Unions,Labor,14,7250
 Democratic,RHODE ISLAND STATE FRATERNAL ORDER OF POLICE,Non-Individual,Police unions & associations,Public Sector Unions,Labor,37,7225
 Democratic,SANTA BARBARA POLICE OFFICERS ASSOCIATION,Non-Individual,Police unions & associations,Public Sector Unions,Labor,4,7000
 Democratic,EMERGENCY MEDICAL SERVICES DIVISION OF BOSTON POLICE PATROLMENS ASSOCIATION,Non-Individual,Emergency responder unions and associations,Public Sector Unions,Labor,14,7000
@@ -353,7 +324,6 @@ Democratic,FLORIDA POLICE ASSOCIATION LOCAL 6000,Non-Individual,Police unions & 
 Democratic,FRATERNAL ORDER OF POLICE LODGE 112,Non-Individual,Police unions & associations,Public Sector Unions,Labor,8,6350
 Republican,STATE TROOPERS SUPERIOR OFFICERS ASSOCIATION OF NEW JERSEY,Non-Individual,Police unions & associations,Public Sector Unions,Labor,16,6305
 Democratic,RETIRED DETROIT POLICE & FIRE FIGHTERS ASSOCIATION,Non-Individual,Emergency responder unions and associations,Public Sector Unions,Labor,23,6290
-Republican,CORRECTION CAPTAINS ASSOCIATION,Non-Individual,Corrections officers unions and associations,Public Sector Unions,Labor,21,6275
 Democratic,GRAND RAPIDS POLICE OFFICERS ASSOCIATION,Non-Individual,Police unions & associations,Public Sector Unions,Labor,9,6250
 Republican,NEW YORK STATE ASSOCIATION OF CHIEFS OF POLICE,Non-Individual,Police unions & associations,Public Sector Unions,Labor,12,6209
 Republican,NYC RETIRED TRANSIT POLICE OFF ASSOCIATION,Non-Individual,Police unions & associations,Public Sector Unions,Labor,6,6200
@@ -412,7 +382,6 @@ Republican,SANTA ANA POLICE OFFICERS ASSOCIATION,Non-Individual,Police unions & 
 Democratic,NEW JERSEY LAW ENFORCEMENT SUPERVISORS ASSOCIATION,Non-Individual,Police unions & associations,Public Sector Unions,Labor,9,4650
 Democratic,GLEN COVE PBA,Non-Individual,Police unions & associations,Public Sector Unions,Labor,14,4600
 Democratic,NEW YORK POLICE & FIRE RETIREES ASSOCIATION,Non-Individual,Emergency responder unions and associations,Public Sector Unions,Labor,14,4575
-Republican,MISSOURI CORRECTIONS OFFICERS ASSOCIATION,Non-Individual,Corrections officers unions and associations,Public Sector Unions,Labor,15,4575
 Republican,PALM BEACH COUNTY POLICE BENEVOLENT ASSOCIATION,Non-Individual,Police unions & associations,Public Sector Unions,Labor,7,4550.97
 Democratic,FULLERTON POLICE OFFICERS ASSOCIATION,Non-Individual,Police unions & associations,Public Sector Unions,Labor,3,4500
 Democratic,SCARSDALE POLICE BENEVOLENT ASSOCIATION,Non-Individual,Police unions & associations,Public Sector Unions,Labor,3,4500
@@ -433,7 +402,6 @@ Democratic,COLORADO SPRINGS POLICE PROTECTION ASSOCIATION,Non-Individual,Police 
 Democratic,SANTA CLARA COUNTY PROBATION PEACE OFFICERS LOCAL 1587,Non-Individual,Police unions & associations,Public Sector Unions,Labor,3,4000
 Republican,ALASKA STATE TROOPERS CHAPTER,Non-Individual,Police unions & associations,Public Sector Unions,Labor,5,4000
 Democratic,SANTA BARBARA COUNTY DEPUTY SHERIFFS ASSOCIATION,Non-Individual,Police unions & associations,Public Sector Unions,Labor,1,3900
-Democratic,PRINCE GEORGES COUNTY CORRECTIONAL OFFICERS ASSOCIATION,Non-Individual,Corrections officers unions and associations,Public Sector Unions,Labor,11,3900
 Democratic,BELL POLICE OFFICERS ASSOCIATION,Non-Individual,Police unions & associations,Public Sector Unions,Labor,1,3900
 Republican,BALTIMORE CITY FRATERNAL ORDER OF POLICE LODGE 3,Non-Individual,Police unions & associations,Public Sector Unions,Labor,8,3880
 Democratic,TROOPERS LODGE 41-TROOPAC,Non-Individual,Police unions & associations,Public Sector Unions,Labor,4,3850
@@ -466,7 +434,6 @@ Democratic,DETECTIVE INVESTIGATORS ASSOCIATION OF DAS OFFICE,Non-Individual,Poli
 Democratic,TRIBOROUGH BRIDGE & TUNNEL AUTHORITY SUPERIOR OFFICERS BENEVOLENT ASSOCIATION,Non-Individual,Police unions & associations,Public Sector Unions,Labor,17,3300
 Democratic,SHERIFFS DEPUTIES OF BEXAR CO,Non-Individual,Police unions & associations,Public Sector Unions,Labor,5,3300
 Third-Party,LOUISIANA SHERIFFS & DEPUTIES ASSOCIATION,Non-Individual,Police unions & associations,Public Sector Unions,Labor,3,3300
-Democratic,ROCKLAND COUNTY CORRECTION OFFICERS BENEVOLENT ASSOCIATION,Non-Individual,Corrections officers unions and associations,Public Sector Unions,Labor,8,3290
 Democratic,FRESNO POLICE OFFICERS ASSOCIATION,Non-Individual,Police unions & associations,Public Sector Unions,Labor,6,3250
 Democratic,SAN JOAQUIN COUNTY DEPUTY SHERIFFS ASSOCIATION,Non-Individual,Police unions & associations,Public Sector Unions,Labor,6,3250
 Democratic,POLICE ASSOCIATION LOCAL 4,Non-Individual,Police unions & associations,Public Sector Unions,Labor,4,3250
@@ -520,7 +487,6 @@ Republican,COLORADO STATE LODGE FRATERNAL ORDER OF POLICE,Non-Individual,Police 
 Republican,NC POLICE BENEVOLENT ASSOCIATION PAC,Non-Individual,Police unions & associations,Public Sector Unions,Labor,1,2500
 Republican,MASSACHUSETTS STATE POLICE COMMISSIONED OFFICERS ASSOCIATION,Non-Individual,Police unions & associations,Public Sector Unions,Labor,6,2500
 Republican,NJ FRATERNAL ORDER OF POLICE,Non-Individual,Police unions & associations,Public Sector Unions,Labor,7,2450
-Democratic,CONNECTICUT CORRECTIONS EMPLOYEES UNION,Non-Individual,Corrections officers unions and associations,Public Sector Unions,Labor,10,2350
 Democratic,MINNEAPOLIS POLICE FRATERNAL ASSOCIATION,Non-Individual,Police unions & associations,Public Sector Unions,Labor,8,2350
 Republican,POLICE BENEVOLENT ASSOCIATION LOCAL 105,Non-Individual,Police unions & associations,Public Sector Unions,Labor,5,2350
 Nonpartisan,WISCONSIN PROFESSIONAL POLICE ASSOCIATION,Non-Individual,Police unions & associations,Public Sector Unions,Labor,2,2350
@@ -533,7 +499,6 @@ Democratic,WESTMINSTER POLICE OFFICERS ASSOCIATION,Non-Individual,Police unions 
 Democratic,LOWELL POLICE SUPERIOR OFFICERS ASSOCIATION,Non-Individual,Police unions & associations,Public Sector Unions,Labor,8,2250
 Democratic,WASHOE COUNTY SHERIFFS DEPUTIES ASSOCIATION,Non-Individual,Police unions & associations,Public Sector Unions,Labor,12,2250
 Democratic,POMONA POLICE OFFICERS' ASSOCIATION,Non-Individual,Police unions & associations,Public Sector Unions,Labor,2,2250
-Republican,MICHIGAN CORRECTIONS ORGANIZATION LOCAL 526M,Non-Individual,Corrections officers unions and associations,Public Sector Unions,Labor,3,2250
 Republican,TROOPERS LODGE 41/TROOPAC,Non-Individual,Police unions & associations,Public Sector Unions,Labor,9,2250
 Democratic,MILTON POLICE ASSOCIATION,Non-Individual,Police unions & associations,Public Sector Unions,Labor,10,2200
 Democratic,WEST ORANGE PBA LOCAL 25,Non-Individual,Police unions & associations,Public Sector Unions,Labor,4,2200
@@ -544,7 +509,6 @@ Democratic,NJ FRATERNAL ORDER OF POLICE,Non-Individual,Police unions & associati
 Republican,CONSERVATION POLICE LODGE 146,Non-Individual,Police unions & associations,Public Sector Unions,Labor,7,2150
 Democratic,NJ LAW ENFORCEMENT COMMANDING OFFICERS,Non-Individual,Police unions & associations,Public Sector Unions,Labor,4,2100
 Republican,MINNEAPOLIS POLICE RELIEF ASSOCIATION,Non-Individual,Police unions & associations,Public Sector Unions,Labor,8,2100
-Democratic,UNION COUNTY CORRECTIONS PBA LOCAL 199,Non-Individual,Corrections officers unions and associations,Public Sector Unions,Labor,4,2000
 Democratic,MICHIGAN ASSOCIATION OF POLICE ORGANIZATIONS,Non-Individual,Police unions & associations,Public Sector Unions,Labor,3,2000
 Democratic,EL SEGUNDO POLICE OFFICERS ASSOCIATION,Non-Individual,Police unions & associations,Public Sector Unions,Labor,2,2000
 Democratic,SAN LEANDRO POLICE OFFICERS ASSOCIATION,Non-Individual,Police unions & associations,Public Sector Unions,Labor,4,2000
@@ -552,7 +516,6 @@ Democratic,BAKERSFIELD POLICE OFFICERS ASSOCIATION,Non-Individual,Police unions 
 Democratic,METHUEN POLICE SUPERIOR OFFICERS ASSOCIATION,Non-Individual,Police unions & associations,Public Sector Unions,Labor,11,2000
 Democratic,DEPUTY SHERIFFS ASSOCIATION OF PRINCE GEORGES COUNTY,Non-Individual,Police unions & associations,Public Sector Unions,Labor,2,2000
 Democratic,FAIRFAX DEPUTY SHERIFFS COALITION LOCAL 50,Non-Individual,Police unions & associations,Public Sector Unions,Labor,2,2000
-Democratic,CHESHIRE CORRECTION COMPLEX EMPLOYEES LOCAL 387,Non-Individual,Corrections officers unions and associations,Public Sector Unions,Labor,7,2000
 Democratic,STATE LAW ENFORCEMENT OFFICERS LABOR ALLIANCE PAC,Non-Individual,Police unions & associations,Public Sector Unions,Labor,1,2000
 Democratic,FRATERNAL ORDER OF POLICE LODGE3,Non-Individual,Police unions & associations,Public Sector Unions,Labor,2,2000
 Republican,SOUTHERN NEVADACONFERENCE OF POLICE & SHERIFFS,Non-Individual,Police unions & associations,Public Sector Unions,Labor,4,2000
@@ -570,7 +533,6 @@ Republican,METROPOLITAN POLICE CONFERENCE,Non-Individual,Police unions & associa
 Democratic,POLICE ASSOCIATION (UNIDENTIFIABLE),Non-Individual,Police unions & associations,Public Sector Unions,Labor,2,1900
 Democratic,FRATERNAL ORDER OF POLICE MASSACHUSETTS BAY STATE LODGE 30,Non-Individual,Police unions & associations,Public Sector Unions,Labor,14,1900
 Democratic,MILWAUKEE POLICE ASSOCIATION,Non-Individual,Police unions & associations,Public Sector Unions,Labor,12,1850
-Democratic,NEW JERSEY STATE CORRECTIONS SERGEANT,Non-Individual,Corrections officers unions and associations,Public Sector Unions,Labor,4,1850
 Democratic,CHICAGO POLICE SERGEANTS ASSOCIATION UNIT 156 A,Non-Individual,Police unions & associations,Public Sector Unions,Labor,6,1800
 Democratic,BROWNSVILLE POLICE OFFICERS ASSOCIATION,Non-Individual,Police unions & associations,Public Sector Unions,Labor,3,1800
 Democratic,POLICE BENEVOLENT & PROTECTION ASSOCIATION,Non-Individual,Police unions & associations,Public Sector Unions,Labor,7,1800
@@ -590,7 +552,6 @@ Third-Party,OHIO STATE FRATERNAL ORDER OF POLICE,Non-Individual,Police unions & 
 Democratic,NIAGARA FRONTIER TRANSIT AUTHORITY POLICE BENEVOLENT ASSOCIATION,Non-Individual,Police unions & associations,Public Sector Unions,Labor,6,1700
 Republican,INDIANA STATE POLICE ALLIANCE,Non-Individual,Police unions & associations,Public Sector Unions,Labor,6,1650
 Democratic,NEW YORK STATE PARK POLICE BENEVOLENT ASSOCIATION,Non-Individual,Police unions & associations,Public Sector Unions,Labor,10,1625
-Republican,UTAH CORRECTIONS PEACE OFFICERS ASSOCIATION LODGE 14,Non-Individual,Corrections officers unions and associations,Public Sector Unions,Labor,6,1600
 Democratic,TENNESSEE STATE LODGE FRATERNAL ORDER OF POLICE,Non-Individual,Police unions & associations,Public Sector Unions,Labor,2,1500
 Democratic,PROBATION PEACE OFFICERS ASSOCIATION OF CONTRA COSTA COUNTY,Non-Individual,Police unions & associations,Public Sector Unions,Labor,2,1500
 Democratic,MIAMI FRATERNAL ORDER OF POLICE LODGE 20,Non-Individual,Police unions & associations,Public Sector Unions,Labor,3,1500
@@ -694,7 +655,6 @@ Republican,POLICE UNIONS,Non-Individual,Police unions & associations,Public Sect
 Republican,RENTON POLICE OFFICERS GUILD,Non-Individual,Police unions & associations,Public Sector Unions,Labor,2,1000
 Republican,HOWARD COUNTY POLICE OFFICERS ASSOCIATION LODGE 21,Non-Individual,Police unions & associations,Public Sector Unions,Labor,1,1000
 Republican,FRATERNAL ORDER OF POLICE LODGE 1,Non-Individual,Police unions & associations,Public Sector Unions,Labor,2,1000
-Republican,ASSOCIATION OF OREGON CORRECTIONS EMPLOYEES,Non-Individual,Corrections officers unions and associations,Public Sector Unions,Labor,1,1000
 Republican,DENVER POLICE PROTECTIVE ASSOCIATION,Non-Individual,Police unions & associations,Public Sector Unions,Labor,1,1000
 Republican,INDIANA ASSOCIATION OF CHIEFS OF POLICE,Non-Individual,Police unions & associations,Public Sector Unions,Labor,1,1000
 Republican,WEST VIRGINIA TROOPERS ASSOCIATION,Non-Individual,Police unions & associations,Public Sector Unions,Labor,2,1000
@@ -703,7 +663,6 @@ Republican,TEXAS DPS OFFICERS ASSOCIATION PAC,Non-Individual,Police unions & ass
 Republican,FRATERNAL ORDER OF POLICE BLUEGRASS LODGE 4,Non-Individual,Police unions & associations,Public Sector Unions,Labor,1,1000
 Republican,TUCSON POLICE OFFICERS ASSOCIATION,Non-Individual,Police unions & associations,Public Sector Unions,Labor,2,1000
 Republican,FRATERNAL ORDER OF POLICE JAX CONSOLIDATED LODGE 5-30 INC,Non-Individual,Police unions & associations,Public Sector Unions,Labor,1,1000
-Third-Party,ALASKA CORRECTIONAL OFFICERS ASSOCIATION,Non-Individual,Corrections officers unions and associations,Public Sector Unions,Labor,2,1000
 Nonpartisan,OAKLAND POLICE OFFICERS ASSOCIATION,Non-Individual,Police unions & associations,Public Sector Unions,Labor,1,1000
 Nonpartisan,FRESNO POLICE OFFICERS ASSOCIATION,Non-Individual,Police unions & associations,Public Sector Unions,Labor,1,1000
 Nonpartisan,GLENDALE POLICE OFFICERS ASSOCIATION,Non-Individual,Police unions & associations,Public Sector Unions,Labor,1,1000
@@ -725,7 +684,6 @@ Democratic,WHITE PLAINS POLICE BENEVOLENT ASSOCIATION,Non-Individual,Police unio
 Republican,FRATERNAL ORDER OF POLICE LODGE 1597,Non-Individual,Police unions & associations,Public Sector Unions,Labor,9,850
 Nonpartisan,FRATERNAL ORDER OF POLICE CAPITAL CITY LODGE 9,Non-Individual,Police unions & associations,Public Sector Unions,Labor,3,850
 Democratic,INTERNATIONAL ASSOCIATION OF EMTS & PARAMEDICS & INTERNATIONAL BROTHERHOOD OF POLICE OFFICERS,Non-Individual,Emergency responder unions and associations,Public Sector Unions,Labor,6,830
-Democratic,KING COUNTY CORRECTIONS GUILD,Non-Individual,Corrections officers unions and associations,Public Sector Unions,Labor,1,800
 Democratic,TROOPERS LODGE 41/TROOPAC,Non-Individual,Police unions & associations,Public Sector Unions,Labor,4,800
 Democratic,BALTIMORE RETIRED POLICE BENEVOLENT ASSOCIATION,Non-Individual,Police unions & associations,Public Sector Unions,Labor,3,800
 Democratic,DETECTIVE INVESTIGATORS ASSOCIATION,Non-Individual,Police unions & associations,Public Sector Unions,Labor,4,800
@@ -759,7 +717,6 @@ Democratic,FRANKLIN TOWNSHIP FMBA LOCAL 88,Non-Individual,Police unions & associ
 Nonpartisan,ASSOCIATION OF MONTANA TROOPERS,Non-Individual,Police unions & associations,Public Sector Unions,Labor,2,660
 Democratic,MIDDLESEX SHERIFF SUPERIOR OFFICERS ASSOCIATION,Non-Individual,Police unions & associations,Public Sector Unions,Labor,3,650
 Democratic,POLICE UNIONS,Non-Individual,Police unions & associations,Public Sector Unions,Labor,2,650
-Democratic,MARYLAND CORRECTIONAL LAW ENFORCEMENT UNION,Non-Individual,Corrections officers unions and associations,Public Sector Unions,Labor,5,650
 Republican,FRATERNAL ORDER OF POLICE LODGE 263,Non-Individual,Police unions & associations,Public Sector Unions,Labor,2,650
 Republican,ONONDAGA COUNTY DEPUTY SHERIFFS POLICE BENEVOLENT ASSOCIATION,Non-Individual,Police unions & associations,Public Sector Unions,Labor,4,650
 Democratic,FRATERNAL ORDER OF POLICE LODGE 1,Non-Individual,Police unions & associations,Public Sector Unions,Labor,3,640
@@ -809,7 +766,6 @@ Democratic,EDISON PBA,Non-Individual,Police unions & associations,Public Sector 
 Democratic,TRENTON POLICE BENEVOLENT ASSOCIATION LOCAL 11,Non-Individual,Police unions & associations,Public Sector Unions,Labor,1,500
 Democratic,NEW JERSEY PBA LOCAL 325,Non-Individual,Police unions & associations,Public Sector Unions,Labor,1,500
 Democratic,ENGLEWOOD PBA LOCAL 216,Non-Individual,Police unions & associations,Public Sector Unions,Labor,1,500
-Democratic,SOA CORRECTION OFFICER UNION,Non-Individual,Corrections officers unions and associations,Public Sector Unions,Labor,1,500
 Democratic,WATERBURY POLICE LOCAL 1237,Non-Individual,Police unions & associations,Public Sector Unions,Labor,3,500
 Democratic,FRIENDS OF POLICE,Non-Individual,Police unions & associations,Public Sector Unions,Labor,1,500
 Democratic,STAMFORD POLICE ASSOCIATION,Non-Individual,Police unions & associations,Public Sector Unions,Labor,2,500
@@ -836,7 +792,6 @@ Democratic,FRATERNAL ORDER OF POLICE NJ STAGE LODGE,Non-Individual,Police unions
 Democratic,PA FRATERNAL ORDER OF POLICE FOP,Non-Individual,Police unions & associations,Public Sector Unions,Labor,2,500
 Democratic,FRATERNAL ORDER OF POLICE LODGE,Non-Individual,Police unions & associations,Public Sector Unions,Labor,1,500
 Republican,STATE TROOPERS ASSOCIATION OF NEBRASKA,Non-Individual,Police unions & associations,Public Sector Unions,Labor,1,500
-Republican,CONNECTICUT CORRECTIONS EMPLOYEES UNION,Non-Individual,Corrections officers unions and associations,Public Sector Unions,Labor,1,500
 Republican,TALLAHASSEE POLICE BENEVOLENT ASSOCIATION,Non-Individual,Police unions & associations,Public Sector Unions,Labor,1,500
 Republican,WEST CENTRAL FLORIDA POLICE BENEVOLENT ASSOCIATION,Non-Individual,Police unions & associations,Public Sector Unions,Labor,1,500
 Republican,ILLINOIS ASSOCIATION CHIEFS OF POLICE,Non-Individual,Police unions & associations,Public Sector Unions,Labor,2,500
@@ -845,7 +800,6 @@ Republican,BLOOMINGTON POLICEMENS BENEVOLENT,Non-Individual,Police unions & asso
 Republican,ILLINOIS DRUG ENFORCEMENT OFFICERS,Non-Individual,Police unions & associations,Public Sector Unions,Labor,1,500
 Republican,SPOKANE COUNTY DEPUTY SHERIFFS ASSOCIATION,Non-Individual,Police unions & associations,Public Sector Unions,Labor,1,500
 Republican,PORT AUTHORITY POLICE & DEA NEW YORK,Non-Individual,Police unions & associations,Public Sector Unions,Labor,1,500
-Republican,WEST COUNTY DEPARTMENT OF CORRECTIONS SUPERIOR OFFICERS ASSOCIATION,Non-Individual,Corrections officers unions and associations,Public Sector Unions,Labor,1,500
 Republican,BALTIMORE RETIRED POLICE BENEVOLENT ASSOCIATION,Non-Individual,Police unions & associations,Public Sector Unions,Labor,1,500
 Republican,WHITE ROSE FRATERNAL ORDER OF POLICE LODGE 15,Non-Individual,Police unions & associations,Public Sector Unions,Labor,1,500
 Republican,FRATERNAL ORDER OF POLICE LODGE 20,Non-Individual,Police unions & associations,Public Sector Unions,Labor,1,500
@@ -867,7 +821,6 @@ Nonpartisan,POLICE OFFICERS ASSOCIATION OF MICHIGAN,Non-Individual,Police unions
 Nonpartisan,FRATERNAL ORDER OF POLICE LODGE 59,Non-Individual,Police unions & associations,Public Sector Unions,Labor,1,500
 Nonpartisan,BROWARD COUNTY PBA,Non-Individual,Police unions & associations,Public Sector Unions,Labor,1,500
 Nonpartisan,CENTRAL FLORIDA PBA,Non-Individual,Police unions & associations,Public Sector Unions,Labor,1,500
-Nonpartisan,MICHIGAN CORRECTIONS ORGANIZATION LOCAL 526M,Non-Individual,Corrections officers unions and associations,Public Sector Unions,Labor,1,500
 Nonpartisan,FLORIDA SHERIFFS CCE,Non-Individual,Police unions & associations,Public Sector Unions,Labor,1,500
 Nonpartisan,FLORIDA SHERIFFS ASSOCIATION,Non-Individual,Police unions & associations,Public Sector Unions,Labor,1,500
 Nonpartisan,TROOPERS FOR A SAFER OHIO PAC INC,Non-Individual,Police unions & associations,Public Sector Unions,Labor,1,500
@@ -886,7 +839,6 @@ Republican,RIVERDALE PBA LOCAL 335,Non-Individual,Police unions & associations,P
 Republican,FRISCO POLICE OFFICERS ASSOCIATION,Non-Individual,Police unions & associations,Public Sector Unions,Labor,1,450
 Republican,FRATERNAL ORDER OF POLICE LODGE 86,Non-Individual,Police unions & associations,Public Sector Unions,Labor,3,450
 Republican,MASSACHUSETTS CHIEFS OF POLICE ASSOCIATION,Non-Individual,Police unions & associations,Public Sector Unions,Labor,4,425
-Democratic,BROTHERHOOD OF CORRECTIONAL OFFICERS LOCAL 248,Non-Individual,Corrections officers unions and associations,Public Sector Unions,Labor,2,400
 Democratic,WESTCHESTER HISPANIC LAW ENFORCEMENT,Non-Individual,Police unions & associations,Public Sector Unions,Labor,4,400
 Democratic,SOUTHAMPTON TOWN POLICE BENEVOLENT ASSOCIATION,Non-Individual,Police unions & associations,Public Sector Unions,Labor,3,400
 Democratic,LAW ENFORCEMENT,Non-Individual,Police unions & associations,Public Sector Unions,Labor,2,400
@@ -894,7 +846,6 @@ Democratic,MARYLAND TROOPERS ASSOCIATION,Non-Individual,Police unions & associat
 Democratic,AURORA POLICE ASSOCIATION,Non-Individual,Police unions & associations,Public Sector Unions,Labor,2,400
 Democratic,ESSEX COUNTY POLICE PBA LOCAL 64,Non-Individual,Police unions & associations,Public Sector Unions,Labor,2,400
 Democratic,DEPUTY SHERIFFS LOCAL 2409,Non-Individual,Police unions & associations,Public Sector Unions,Labor,2,400
-Democratic,UTAH CORRECTIONS PEACE OFFICERS ASSOCIATION LODGE 14,Non-Individual,Corrections officers unions and associations,Public Sector Unions,Labor,3,400
 Republican,NEW JERSEY DEPUTY CHIEFS ASSOCIATION,Non-Individual,Police unions & associations,Public Sector Unions,Labor,1,400
 Republican,FRATERNAL ORDER OF POLICE MASSACHUSETTS BAY STATE LODGE 30,Non-Individual,Police unions & associations,Public Sector Unions,Labor,4,400
 Republican,NIAGARA FRONTIER TRANSIT AUTHORITY POLICE BENEVOLENT ASSOCIATION,Non-Individual,Police unions & associations,Public Sector Unions,Labor,2,400
@@ -926,15 +877,12 @@ Democratic,TROOPERS PAC/TROOPERS LODGE 41,Non-Individual,Police unions & associa
 Democratic,EAU CLAIRE PROFESSIONAL POLICE ASSOCIATION LOCAL 9,Non-Individual,Police unions & associations,Public Sector Unions,Labor,1,300
 Democratic,EASTERN MISSOURI COALITION OF POLICE FOP LODGE 15,Non-Individual,Police unions & associations,Public Sector Unions,Labor,2,300
 Democratic,ALLEGHENY VALLEY FRATERNAL ORDER OF POLICE LODGE 39,Non-Individual,Police unions & associations,Public Sector Unions,Labor,3,300
-Democratic,ALLEGHENY COUNTY PRISON EMPLOYEES INDEPENDENT UNION,Non-Individual,Corrections officers unions and associations,Public Sector Unions,Labor,1,300
 Democratic,OFFICERS BENEVOLENT ASSOCIATION,Non-Individual,Police unions & associations,Public Sector Unions,Labor,1,300
 Democratic,NEW YORK STATE SHERIFFS GOOD GOVT FUND,Non-Individual,Police unions & associations,Public Sector Unions,Labor,1,300
 Democratic,ESSEX COUNTY SHERIFFS LOCAL183,Non-Individual,Police unions & associations,Public Sector Unions,Labor,1,300
-Democratic,UTAH DEPT OF CORRECTIONS EMPLOYEE ASSOCIATION,Non-Individual,Corrections officers unions and associations,Public Sector Unions,Labor,2,300
 Democratic,TRI-COUNTY FRATERNAL ORDER OF POLICE,Non-Individual,Police unions & associations,Public Sector Unions,Labor,1,300
 Democratic,FRATERNAL ORDER OF POLICE LODGE 106,Non-Individual,Police unions & associations,Public Sector Unions,Labor,2,300
 Democratic,MISSOURI FRATERNAL ORDER OF POLICE,Non-Individual,Police unions & associations,Public Sector Unions,Labor,1,300
-Republican,RHODE ISLAND BROTHERHOOD OF CORRECTIONAL OFFICERS,Non-Individual,Corrections officers unions and associations,Public Sector Unions,Labor,1,300
 Republican,OAKLAND COUNTY SHERIFFS DEPT ASSOCIATION,Non-Individual,Police unions & associations,Public Sector Unions,Labor,2,300
 Republican,NATIONAL NYCPD 10-13 ORGANIZATIONS PAC,Non-Individual,Police unions & associations,Public Sector Unions,Labor,1,300
 Republican,STATE TROOPER HIGHWAY PATROLMAN ASSOCIATION,Non-Individual,Police unions & associations,Public Sector Unions,Labor,2,300
@@ -957,7 +905,6 @@ Democratic,PORT WASHINGTON POLICE BENEVOLENT ASSOCIATION,Non-Individual,Police u
 Democratic,SUPERIOR OFFICERS ASSOCIATION RETIRED,Non-Individual,Police unions & associations,Public Sector Unions,Labor,1,250
 Democratic,WHITE ROSE FRATERNAL ORDER OF POLICE LODGE 15,Non-Individual,Police unions & associations,Public Sector Unions,Labor,1,250
 Democratic,NIAGARA COUNTY DEPUTY SHERIFFS ASSOCIATION,Non-Individual,Police unions & associations,Public Sector Unions,Labor,1,250
-Democratic,COLUMBIA ASSOCIATION NEW YORK CITY DEPT OF CORRECTIONS,Non-Individual,Corrections officers unions and associations,Public Sector Unions,Labor,1,250
 Democratic,SHERIFF OFFICERS ASSOCIATION,Non-Individual,Police unions & associations,Public Sector Unions,Labor,2,250
 Democratic,MARYLAND RANGERS ASSOCIATION,Non-Individual,Police unions & associations,Public Sector Unions,Labor,1,250
 Democratic,FRATERNAL ORDER OF POLICE LODGE 89,Non-Individual,Police unions & associations,Public Sector Unions,Labor,1,250
@@ -1010,7 +957,6 @@ Democratic,FRATERNAL ORDER OF POLICE KENT COUNTY LODGE 3,Non-Individual,Police u
 Democratic,PLACER COUNTY DEPUTY SHERIFFS ASSOCIATION,Non-Individual,Police unions & associations,Public Sector Unions,Labor,1,200
 Democratic,BELMONT POLICE PATROLMANS ASSOCIATION,Non-Individual,Police unions & associations,Public Sector Unions,Labor,1,200
 Democratic,NORWOOD POLICE OFFICERS UNION,Non-Individual,Police unions & associations,Public Sector Unions,Labor,1,200
-Democratic,CORRECTIONAL OFFICERS,Non-Individual,Corrections officers unions and associations,Public Sector Unions,Labor,1,200
 Democratic,POLICE OFFICERS LOCAL 395,Non-Individual,Police unions & associations,Public Sector Unions,Labor,1,200
 Democratic,MASSPORT POLICE LOCAL 810,Non-Individual,Police unions & associations,Public Sector Unions,Labor,1,200
 Democratic,COALITION OF PUBLIC SAFETY/COPS,Non-Individual,Police unions & associations,Public Sector Unions,Labor,1,200
@@ -1047,16 +993,13 @@ Republican,NEW CASTLE COUNTY FRATERNAL ORDER OF POLICE LODGE 5,Non-Individual,Po
 Republican,FRATERNAL ORDER OF POLICE ASSOCIATION ANTON LODGE 125,Non-Individual,Police unions & associations,Public Sector Unions,Labor,1,200
 Democratic,FLORIDA POLICE CHIEFS ASSOCIATION,Non-Individual,Police unions & associations,Public Sector Unions,Labor,1,191.05
 Democratic,POLICE OFFICERS OF WESTPORT ALLIANCE,Non-Individual,Police unions & associations,Public Sector Unions,Labor,1,180
-Democratic,SAN JOAQUIN COUNTY CORRECTIONAL OFFICERS ASSOCIATION,Non-Individual,Corrections officers unions and associations,Public Sector Unions,Labor,2,175
 Democratic,LUDLOW POLICE ASSOCIATION,Non-Individual,Police unions & associations,Public Sector Unions,Labor,2,175
 Democratic,FALL RIVER POLICE ASSOCIATION,Non-Individual,Police unions & associations,Public Sector Unions,Labor,2,151
 Democratic,MASSACHUSETTS FRATERNAL ORDER OF POLICE LODGE 111,Non-Individual,Police unions & associations,Public Sector Unions,Labor,1,150
 Democratic,DARTMOUTH POLICE BROTHERHOOD,Non-Individual,Police unions & associations,Public Sector Unions,Labor,2,150
 Democratic,MIAMI POLICE BENEVOLENT ASSOCIATION,Non-Individual,Police unions & associations,Public Sector Unions,Labor,1,150
 Democratic,WISCONSIN SHERIFFS & DEPUTY SHERIFFS ASSOCIATION,Non-Individual,Police unions & associations,Public Sector Unions,Labor,2,150
-Democratic,ORANGE COUNTY CORRECTION OFFICERS BENEVOLENT ASSOCIATION OF NEW YORK,Non-Individual,Corrections officers unions and associations,Public Sector Unions,Labor,1,150
 Democratic,ANNE ARUNDEL COUNTY POLICE SUPERVISORS ASSOCIATION,Non-Individual,Police unions & associations,Public Sector Unions,Labor,1,150
-Democratic,ASST DEPUTY WARDENS ASSOCIATION,Non-Individual,Corrections officers unions and associations,Public Sector Unions,Labor,1,150
 Democratic,WESTCHESTER HISPANIC LAW ENFORCEMENT ASSOCIATION,Non-Individual,Police unions & associations,Public Sector Unions,Labor,1,150
 Democratic,IOWA STATE POLICE OFFICERS COUNCIL,Non-Individual,Police unions & associations,Public Sector Unions,Labor,2,150
 Democratic,STATE LAW ENFORCEMENT OFFICERS LABOR ALLIANCE PAC,Non-Individual,Police unions & associations,Public Sector Unions,Labor,1,150
@@ -1075,7 +1018,6 @@ Democratic,NEW HAVEN POLICE UNION,Non-Individual,Police unions & associations,Pu
 Republican,UNREADABLE POLICE/FIRE PENSION,Non-Individual,Emergency responder unions and associations,Public Sector Unions,Labor,1,125
 Nonpartisan,MARYLAND TROOPERS ASSOCIATION,Non-Individual,Police unions & associations,Public Sector Unions,Labor,1,120
 Democratic,LADIES AUXILIARY ALABAMA SHERIFFS ASSOCIATION,Non-Individual,Police unions & associations,Public Sector Unions,Labor,1,116
-Democratic,MIDDLESEX COUNTY CORRECTIONS OFFICERS LOCAL 152,Non-Individual,Corrections officers unions and associations,Public Sector Unions,Labor,1,100
 Democratic,BART POLICE OFFICERS ASSOCIATION,Non-Individual,Police unions & associations,Public Sector Unions,Labor,1,100
 Democratic,PASADENA POLICE OFFICERS ASSOCIATION,Non-Individual,Police unions & associations,Public Sector Unions,Labor,1,100
 Democratic,NEWTON POLICE ASSOCIATION,Non-Individual,Police unions & associations,Public Sector Unions,Labor,1,100
@@ -1119,7 +1061,6 @@ Republican,MASSACHUSETTS MUNICIPAL POLICE COALITION,Non-Individual,Police unions
 Republican,RETIRED TROOPERS ASSOCIATION,Non-Individual,Police unions & associations,Public Sector Unions,Labor,1,100
 Republican,DEPUTY SHERIFFS,Non-Individual,Police unions & associations,Public Sector Unions,Labor,1,100
 Republican,GENESEE COUNTY SHERIFFS EMPLOYEES ASSOCIATION,Non-Individual,Police unions & associations,Public Sector Unions,Labor,1,100
-Republican,ALLEGHENY COUNTY CORRECTIONS OFFICERS,Non-Individual,Corrections officers unions and associations,Public Sector Unions,Labor,1,100
 Republican,FRATERNAL ORDER OF POLICE LODGE 37,Non-Individual,Police unions & associations,Public Sector Unions,Labor,1,100
 Republican,FRATERNAL ORDER OF POLICE LODGE 131,Non-Individual,Police unions & associations,Public Sector Unions,Labor,1,100
 Republican,POLICE COLUMBIA ASSOCIATION OF WESTCHESTER NEW YORK,Non-Individual,Police unions & associations,Public Sector Unions,Labor,1,100

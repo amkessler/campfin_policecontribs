@@ -15,7 +15,7 @@ nixlist_vector <- firstrespondlist_forfiltering %>%
   pull(contributor)
 
 
-# function to clean and format the FTM files
+# create function to clean and format the similarly structured FTM files
 process_ftm_table <- function(rawdata){
   #clean columns and remove :id and :token fields
   cleandata <- rawdata %>% 
@@ -28,8 +28,9 @@ process_ftm_table <- function(rawdata){
       dollar_amount = as.numeric(dollar_amount)
     ) %>% 
     #filter for just organizations
-    filter(type_of_contributor == "Non-Individual",
-           !contributor %in% nixlist_vector)
+    filter(type_of_contributor == "Non-Individual", #ensure we just have organizations, not individuals
+           !contributor %in% nixlist_vector, #remove the non-police first responder unions
+           specific_business != "Corrections officers unions and associations") #remove prison guard unions
   return(cleandata)
   }
 
@@ -209,7 +210,8 @@ transactionlevel_to_candidates <- raw_transactionlevel_to_candidates %>%
   clean_names() %>% 
   rename(dollar_amount = amount) %>% 
   filter(type_of_contributor == "Non-Individual",
-         !contributor %in% nixlist_vector) %>% 
+         !contributor %in% nixlist_vector,
+         specific_business != "Corrections officers unions and associations") %>% 
   #format columns
   mutate(
     dollar_amount = as.numeric(dollar_amount),
