@@ -1,7 +1,7 @@
 ---
 title: "State-Level Police Union Contributions"
 author: "Aaron Kessler"
-date: "6/11/2020"
+date: "`r format(Sys.time(), '%B %d, %Y')`"
 output: html_document
 ---
 
@@ -29,8 +29,6 @@ currentofficeholders_byparty <- readRDS("processed_data/currentofficeholders_byp
 statepops <- readRDS("processed_data/statepops.rds")
 
 
-
-
 contribs_tocands %>% 
   group_by(general_party) %>% 
   summarise(sum(dollar_amount)) 
@@ -46,10 +44,8 @@ contribs_tocands %>%
 
 
 
-
 #if want to limit the years choose here
 timeframe_vector <- c("2014", "2016", "2017", "2018", "2019", "2020")
-
 
 
 #create per capita measures and rankings
@@ -99,7 +95,6 @@ staterankings_tocombinedcandsparties <- contribs_combined_candspartycmtes %>%
 
 staterankings_tocombinedcandsparties %>% write_xlsx("output/staterankings_tocombinedcandsparties.xlsx")
 
-
 contribs_tocands %>% 
   count(election_year)
 
@@ -107,7 +102,11 @@ contribs_tocands %>%
 ```
 
 
+```{r working, include=FALSE}
 
+
+
+```
 
 ## Lede
 
