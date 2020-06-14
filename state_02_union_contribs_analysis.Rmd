@@ -160,9 +160,6 @@ That said, it doesn't take the pressure off Democrats, who are in a bind that th
 
 Who are the candidates who have gotten the biggest bails of cash from police unions over the years? They include both the current Democratic governors of New York, **Andrew Cuomo**, and California, **Gavin Newsom**.
 
-Cuomo, along with the longtime state comptroller of New York, **Thomas DiNapoli**, top the list of any currently elected official by a wide margin - each man has received **north of $800,000**. (The champion overall, former California governor Gray Davis, hasn't been in office since the early 2000s; he was sent packing after an anti-establishment upheaval resulted in a 2003 recall election that scrambled California politics.)
-
-
 ```{r, echo=FALSE}
 
 #clean up Andrew Cuomo records to standardize his listings since they are recorded three ways
@@ -179,6 +176,22 @@ topcands_dem <- contribs_tocands %>%
   arrange(desc(total_dollars)) %>% 
   head(10)
 
+vector_cuomo <- topcands_dem %>% 
+  filter(candidate == "CUOMO, ANDREW M") %>% 
+  mutate(total_dollars = dollar(total_dollars)) %>% 
+  pull(total_dollars)
+
+vector_denapoli <- topcands_dem %>% 
+  filter(candidate == "DINAPOLI, THOMAS P") %>% 
+  mutate(total_dollars = dollar(total_dollars)) %>% 
+  pull(total_dollars)
+
+vector_newsom <- topcands_dem %>% 
+  filter(candidate == "NEWSOM, GAVIN") %>% 
+  mutate(total_dollars = dollar(total_dollars)) %>% 
+  pull(total_dollars)
+
+#display table for top dems
 topcands_dem %>% 
   kable(format.args = list(big.mark = ",")) %>%
   kable_styling(bootstrap_options = "striped", full_width = F, position = "left")
@@ -186,7 +199,11 @@ topcands_dem %>%
 
 ```
 
-And here are the **top Republicans**...
+Cuomo tops the list of any currently elected state official for contributions from police groups - he's received a total of **`r vector_cuomo`** (though the arcane nature of New York campaign finance rules means some of that money was given to a joint account he shared with running mates). The longtime state comptroller of New York, **Thomas DiNapoli**, is not far behind with **`r vector_denapoli`**.  Newsom has taken **`r vector_newsom`**.
+
+(The champion overall, former California governor Gray Davis, hasn't been in office since the early 2000s; he was sent packing after an anti-establishment upheaval resulted in a 2003 recall election that scrambled California politics.)  
+  
+And here are the **top Republican candidates**, all but one of them New York politicans...
 
 
 ```{r, echo=FALSE}
@@ -206,7 +223,7 @@ topcands_gop %>%
 ```
 
 
-The **top police unions** since 2000 in total giving to both parties is perhaps not surprisingly concentrated among groups in California and New York...perhaps not surprising. The states here at the top are huge.
+The **top police unions and associations** since 2000 in total giving to both parties is perhaps not surprisingly concentrated among groups in California and New York...perhaps not surprising. The states here at the top are huge.
 
 ```{r, echo=FALSE, warning=FALSE}
 topdonors <- contribs_combined_candspartycmtes %>% 
@@ -229,7 +246,8 @@ But if we look at **state-by-state giving accounting for the populations**, we f
 
 Firstly, it turns out California and New York *still* top the list even after adjusting for their populations.  
   
-But perhaps more strikingly are the smaller states that have a *substantially larger* amount of police union contributions. In the case of Rhode Island, Arkansas and Delaware, we're talking about some of the least-populated states in the country. And yet while they rank **at the bottom by population**, they're among the **highest ranked for per-capita police contributions**.
+But perhaps more strikingly are the smaller states that have a *substantially larger* amount of police union contributions. Rhode Island, Arkansas, and Delaware rank **at the bottom by population**, yet they're among the **highest ranked for per-capita police contributions**.  
+New York and Washington State, both with well-known problems with police departments' use of force, have notable outsized campaign contributions as well given their lower populations.
 
 ```{r, echo=FALSE}
 staterankings_tocombinedcandsparties %>% 
