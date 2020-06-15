@@ -9,6 +9,7 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 
 library(tidyverse)
+library(janitor)
 library(plotly)
 library(htmltools)
 library(widgetframe)
@@ -27,6 +28,7 @@ contribs_combined_candspartycmtes <- readRDS("processed_data/contribs_combined_c
 contribs_toballotmeasures <- readRDS("processed_data/contribs_toballotmeasures.rds")
 currentofficeholders_byparty <- readRDS("processed_data/currentofficeholders_byparty.rds")
 statepops <- readRDS("processed_data/statepops.rds")
+forbignumber <- readRDS("processed_data/forbignumber.rds")
 
 
 contribs_tocands %>% 
@@ -105,6 +107,13 @@ contribs_tocands %>%
 ```{r narrative_vals, include=FALSE}
 ###this chunk used for working out R code for inserting pieces in-line into narrative below
 
+# big number grand total for entire universe
+vector_bignumber <- forbignumber %>% 
+  summarise(total_dollars = sum(dollar_amount)) %>% 
+  mutate(total_dollars = dollar(total_dollars)) %>% 
+  pull()
+
+
 #total to Democratic cands/cmtes
 vector_total_dem_candscmtes <- contribs_combined_candspartycmtes %>% 
   filter(party == "Democratic") %>% 
@@ -133,7 +142,16 @@ vector_total_gop_CURRENTcandscmtes <- currentofficeholders_byparty %>%
   mutate(total_dollars = dollar(total_dollars)) %>% 
   pull()
 
-currentofficeholders_byparty
+
+incumb_summary <- contribs_tocands %>% 
+  group_by(incumbency_status) %>% 
+  summarise(total_dollars = sum(dollar_amount)) %>% 
+  mutate(pct = round_half_up(total_dollars / sum(total_dollars) * 100))
+
+vector_incumbentpct <- incumb_summary %>% filter(incumbency_status == "Incumbent") %>% pull(pct)
+vector_challengerpct <- incumb_summary %>% filter(incumbency_status == "Challenger") %>% pull(pct)
+vector_openseatpct <- incumb_summary %>% filter(incumbency_status == "Open") %>% pull(pct)
+
 
 ```
 
@@ -143,7 +161,7 @@ It's been a long time coming, but recent weeks have finally brought about a sea 
 
 But whether this moment translates into the political will strong enough to overcome police departments' repeated ability to thrwart efforts to change the system remains to be seen. The real test will be in the states themselves, where the police and their powerful unions are major players, having spent tens of millions of dollars to curry favor with state and local politicians. 
 
-In fact, police-affiliated unions and associations have contributed **$150 million** to state candidates, political parties and ballot initiatives across the United States since 2000, a new Bloomberg Industry Group analysis found.
+In fact, police-affiliated unions and associations have contributed **`r vector_bignumber`** to state candidates, political parties and ballot initiatives across the United States since the 2000 election, a new Bloomberg Industry Group analysis found.
 
 The majority of that money has gone to Democrats, who in some places have responded by blocking meaningful change to end excessive use of force, even after horrific incidents. Minnesota's inaction after the 2016 death of Philando Castile could be exhibit A. Baltimore, where Freddie Gray died in police custody in 2015 as a result of a catastrophic neck injury, similarly failed to subsequently take meaningful action.
 
@@ -151,7 +169,8 @@ Democratic candidates and party committees recieved **`r vector_total_dem_candsc
 
 And the Democratic state politicians holding office right now at this very moment? They've collectively received about **`r vector_total_dem_CURRENTcandscmtes`** from law enforcement unions over the course of their careers -- nearly triple the **`r vector_total_gop_CURRENTcandscmtes`** of their current Republican counterparts. 
 
-To be sure, the analysis shows police groups favored the candidates with power - those who are already incumbents - more so than a particular party. More than **seven of every ten dollars** to candidates since 2000 went to **incumbents**. Even then, another quarter of the money went to contenders for open seats. Only four percent of contributions by police groups went to candidates challenging an incumbent.
+To be sure, the analysis shows police groups favored the candidates with power - those who are already *incumbents* - more so than a particular party. An overwhelming **`r vector_incumbentpct` percent** of police group money to candidates went to incumbents over the last two decades. Another  **`r vector_openseatpct` percent** of the money went to contenders for open seats, where there was no current officeholder to run against.  
+Only  **`r vector_challengerpct` percent** of contributions by police groups went to candidates challenging an incumbent.
 
 That said, it doesn't take the pressure off Democrats, who are in a bind that they TKTKTKTKTK.... It's likely that TKTKTKTK....
   
@@ -199,7 +218,7 @@ topcands_dem %>%
 
 ```
 
-Cuomo tops the list of any currently elected state official for contributions from police groups - he's received a total of **`r vector_cuomo`** (though the arcane nature of New York campaign finance rules means some of that money was given to a joint account he shared with running mates). The longtime state comptroller of New York, **Thomas DiNapoli**, is not far behind with **`r vector_denapoli`**.  Newsom has taken **`r vector_newsom`**.
+**Cuomo** tops the list of any currently elected state official for contributions from police groups - he's received a total of **`r vector_cuomo`** (though the arcane nature of New York campaign finance rules means some of that money was given to a joint account he shared with running mates). The longtime state comptroller of New York, **Thomas DiNapoli**, is not far behind with **`r vector_denapoli`**. California's **Newsom** has taken **`r vector_newsom`**.
 
 (The champion overall, former California governor Gray Davis, hasn't been in office since the early 2000s; he was sent packing after an anti-establishment upheaval resulted in a 2003 recall election that scrambled California politics.)  
   
@@ -244,10 +263,10 @@ topdonors %>%
 
 But if we look at **state-by-state giving accounting for the populations**, we find something interesting.  
 
-Firstly, it turns out California and New York *still* top the list even after adjusting for their populations.  
+Firstly, it turns out California and New York still top the list even after adjusting for their populations.  
   
 But perhaps more strikingly are the smaller states that have a *substantially larger* amount of police union contributions. Rhode Island, Arkansas, and Delaware rank **at the bottom by population**, yet they're among the **highest ranked for per-capita police contributions**.  
-New York and Washington State, both with well-known problems with police departments' use of force, have notable outsized campaign contributions as well given their lower populations.
+New Jersey and Washington State, both with well-known problems with their police departments' use of force, also have notably outsized campaign contributions as well given their lower populations.
 
 ```{r, echo=FALSE}
 staterankings_tocombinedcandsparties %>% 
