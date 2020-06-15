@@ -25,10 +25,10 @@ options(scipen = 999)
 contribs_tocands <- readRDS("processed_data/contribs_tocands.rds")
 contribs_topartycmtes <- readRDS("processed_data/contribs_topartycmtes.rds")
 contribs_combined_candspartycmtes <- readRDS("processed_data/contribs_combined_candspartycmtes.rds")
-contribs_toballotmeasures <- readRDS("processed_data/contribs_toballotmeasures.rds")
 currentofficeholders_byparty <- readRDS("processed_data/currentofficeholders_byparty.rds")
 statepops <- readRDS("processed_data/statepops.rds")
-forbignumber <- readRDS("processed_data/forbignumber.rds")
+# contribs_toballotmeasures <- readRDS("processed_data/contribs_toballotmeasures.rds")
+# forbignumber <- readRDS("processed_data/forbignumber.rds")
 
 
 contribs_tocands %>% 
@@ -44,14 +44,19 @@ contribs_tocands %>%
   summarise(tot_dollars = sum(dollar_amount)) %>% 
   mutate(tot_dollars / sum(tot_dollars) * 100)
 
+#just MN records for JD
+contribs_combined_candspartycmtes %>% 
+  filter(election_jurisdiction == "MN") %>% 
+  write_xlsx("output/MNonly_contribs_combined.xlsx")
 
 
-#if want to limit the years choose here
+#if want to limit the years choose here, then uncomment filters below
 timeframe_vector <- c("2014", "2016", "2017", "2018", "2019", "2020")
 
 
 #create per capita measures and rankings
 staterankings_tocands_all <- contribs_tocands %>% 
+  # filter(election_year %in% timeframe_vector) %>% #filtering years here
   group_by(election_jurisdiction) %>% 
   summarise(total_dollars = sum(dollar_amount)) %>% 
   arrange(desc(total_dollars)) %>% 
@@ -67,7 +72,7 @@ staterankings_tocands_all %>% write_xlsx("output/staterankings_tocands_all.xlsx"
 
 
 staterankings_topartycmtes_all <- contribs_topartycmtes %>% 
-  # filter(election_year %in% timeframe_vector) %>% #filtering years yere
+  # filter(election_year %in% timeframe_vector) %>% #filtering years here
   group_by(election_jurisdiction) %>% 
   summarise(total_dollars = sum(dollar_amount)) %>% 
   arrange(desc(total_dollars)) %>% 
@@ -83,7 +88,7 @@ staterankings_topartycmtes_all %>% write_xlsx("output/staterankings_topartycmtes
 
 
 staterankings_tocombinedcandsparties <- contribs_combined_candspartycmtes %>% 
-  # filter(election_year %in% timeframe_vector) %>% #filtering years yere
+  # filter(election_year %in% timeframe_vector) %>% #filtering years here
   group_by(election_jurisdiction) %>% 
   summarise(total_dollars = sum(dollar_amount)) %>% 
   arrange(desc(total_dollars)) %>% 
@@ -101,14 +106,40 @@ contribs_tocands %>%
   count(election_year)
 
 
+### df of contribs by year, party
+partytotal_by_year <- contribs_combined_candspartycmtes %>% 
+  filter(party %in% c("Democratic", "Republican")) %>% 
+  group_by(election_year, party) %>% 
+  summarise(total_dollars = sum(dollar_amount)) %>% 
+  ungroup() %>% 
+  mutate(
+    election_year = as_factor(election_year)
+  )
+
+
+### df of contribs by year, party - NO CALIFORNIA
+partytotal_by_year_NOCALIF <- contribs_combined_candspartycmtes %>% 
+  filter(party %in% c("Democratic", "Republican"),
+         election_jurisdiction != "CA") %>% 
+  group_by(election_year, party) %>% 
+  summarise(total_dollars = sum(dollar_amount)) %>% 
+  ungroup() %>% 
+  mutate(
+    election_year = as_factor(election_year)
+  )
+  
+
+
+
 ```
 
 
 ```{r narrative_vals, include=FALSE}
 ###this chunk used for working out R code for inserting pieces in-line into narrative below
 
-# big number grand total for entire universe
-vector_bignumber <- forbignumber %>% 
+
+#grand total
+vector_total_all_topline <- contribs_combined_candspartycmtes %>% 
   summarise(total_dollars = sum(dollar_amount)) %>% 
   mutate(total_dollars = dollar(total_dollars)) %>% 
   pull()
@@ -155,13 +186,13 @@ vector_openseatpct <- incumb_summary %>% filter(incumbency_status == "Open") %>%
 
 ```
 
-## Lede
+## Lede/Summary
 
 It's been a long time coming, but recent weeks have finally brought about a sea change in public opinion toward police in the wake of George Floyd's death in Minneapolis. Police abuses of power and the targeting, and killing, of black Americans, has sent thousands of people into the streets to protest across the country on a scale not seen in decades. And surveys now show broad support nationwide for reforms to hold police accountable.
 
 But whether this moment translates into the political will strong enough to overcome police departments' repeated ability to thrwart efforts to change the system remains to be seen. The real test will be in the states themselves, where the police and their powerful unions are major players, having spent tens of millions of dollars to curry favor with state and local politicians. 
 
-In fact, police-affiliated unions and associations have contributed **`r vector_bignumber`** to state candidates, political parties and ballot initiatives across the United States since the 2000 election, a new Bloomberg Industry Group analysis found.
+In fact, police-affiliated unions and associations have contributed **`r vector_total_all_topline`** to state candidates and political parties across the United States since the 2000 election, a new Bloomberg Industry Group analysis found.
 
 The majority of that money has gone to Democrats, who in some places have responded by blocking meaningful change to end excessive use of force, even after horrific incidents. Minnesota's inaction after the 2016 death of Philando Castile could be exhibit A. Baltimore, where Freddie Gray died in police custody in 2015 as a result of a catastrophic neck injury, similarly failed to subsequently take meaningful action.
 
@@ -173,11 +204,64 @@ To be sure, the analysis shows police groups favored the candidates with power -
 Only  **`r vector_challengerpct` percent** of contributions by police groups went to candidates challenging an incumbent.
 
 That said, it doesn't take the pressure off Democrats, who are in a bind that they TKTKTKTKTK.... It's likely that TKTKTKTK....
+    
   
   
-## Top candidates, top donors
+## Party Contributions by Election Year/Cycle
 
-Who are the candidates who have gotten the biggest bails of cash from police unions over the years? They include both the current Democratic governors of New York, **Andrew Cuomo**, and California, **Gavin Newsom**.
+Here are what things look like by election cycle going to each party. Note that only a few states have "off-year" elections (on the odd years) which is why those years are always so much lower.  
+
+```{r, echo=FALSE}
+
+# Set palette:
+cbPalette <- c("#4097F1","#EC5F4F")
+
+d <- ggplot(data = partytotal_by_year, aes(x = election_year, y = total_dollars, fill = party)) +
+  geom_col(position = "dodge") + theme_minimal() + 
+  labs(title="Police union contributions to state candidates and parties",
+               subtitle = "(2000-2020 election cycles)",
+               caption = "",
+               x ="", y = "") +
+  theme(plot.title = element_text(hjust = 0.5),
+        plot.subtitle = element_text(hjust = 0.5)) +
+  scale_fill_manual(values=cbPalette) +
+  theme(legend.title=element_blank())
+
+d + theme(axis.text.x  = element_text(angle=90, vjust=0.5, size = 8)) +
+  scale_y_continuous(labels=dollar_format())
+
+
+
+```
+
+Because **California** has an enormous amount of police group contributions, that state alone makes the Democrats especially dominant in what they receive. The chart below shows the totals **without California** included, which reveals a more nuanced picture of police group activty elsewhere, where the two parties were generally much closer during many cycles. Democrats still loomed much larger in the 2010 and 2014 election years, though things became more neck-and-neck after that.
+  
+One potential trend that may be worth exploring is the way these contributions at the state level **mirror in some ways the presidential incumbent** at the time? In that Republican state party candidates and committees generally received a bit more after 9/11 during the W. Bush years, then after Obama was elected there's a huge surge in Dem money and advantage, then with 2016 and the ascendence of Trump, the Democratic advantage all but disappears and the parties are neck-and-neck again in recent cycles.
+
+
+```{r, echo=FALSE}
+
+d2 <- ggplot(data = partytotal_by_year_NOCALIF, aes(x = election_year, y = total_dollars, fill = party)) +
+  geom_col(position = "dodge") + theme_minimal() + 
+  labs(title="Police union contributions to state candidates and parties",
+               subtitle = "(Excluding California, 2000-2020 election cycles)",
+               caption = "",
+               x ="", y = "") +
+  theme(plot.title = element_text(hjust = 0.5),
+        plot.subtitle = element_text(hjust = 0.5)) +
+  scale_fill_manual(values=cbPalette) +
+  theme(legend.title=element_blank())
+
+d2 + theme(axis.text.x  = element_text(angle=90, vjust=0.5, size = 8)) +
+  scale_y_continuous(labels=dollar_format())
+
+
+```
+
+
+## Top candidates
+
+Who are the candidates who have gotten the biggest bails of cash from police unions and associations over the years? They include both the current Democratic governors of New York, **Andrew Cuomo**, and California, **Gavin Newsom**.
 
 ```{r, echo=FALSE}
 
@@ -240,7 +324,10 @@ topcands_gop %>%
 
 
 ```
+  
 
+  
+## Top Donors
 
 The **top police unions and associations** since 2000 in total giving to both parties is perhaps not surprisingly concentrated among groups in California and New York...perhaps not surprising. The states here at the top are huge.
 
@@ -259,14 +346,34 @@ topdonors %>%
 
 ```
 
+The top donor, the *Peace Officers Research Assn of California*, does indeed give to a variety of candidates and is a big-dollar donor to the CA Democratic Party. Not just ballot initatives as had been suspected.
+
+```{r, echo=FALSE, warning=FALSE}
+contribs_combined_candspartycmtes %>% 
+  filter(contributor == "PEACE OFFICERS RESEARCH ASSOCIATION OF CALIFORNIA") %>% 
+  group_by(recipient, recipient_type, party) %>% 
+  summarise(total_dollars = sum(dollar_amount)) %>% 
+  arrange(desc(total_dollars)) %>% 
+  head(10) %>% 
+  kable(format.args = list(big.mark = ",")) %>%
+  kable_styling(bootstrap_options = "striped", full_width = F, position = "left")
+
+
+
+```
+
+
+
+
+
 ## Where the money dominates
 
 But if we look at **state-by-state giving accounting for the populations**, we find something interesting.  
 
-Firstly, it turns out California and New York still top the list even after adjusting for their populations.  
+Firstly, it turns out **California** and **New York** still top the list even after adjusting for their populations.  
   
-But perhaps more strikingly are the smaller states that have a *substantially larger* amount of police union contributions. Rhode Island, Arkansas, and Delaware rank **at the bottom by population**, yet they're among the **highest ranked for per-capita police contributions**.  
-New Jersey and Washington State, both with well-known problems with their police departments' use of force, also have notably outsized campaign contributions as well given their lower populations.
+But perhaps more strikingly are the smaller states that have a *substantially larger* amount of police union contributions. **Rhode Island**, **Arkansas**, and **Delaware** rank *at the bottom by population*, yet they're among the *highest ranked for per-capita police contributions*.  
+**New Jersey** and **Washington State**, both with well-known problems with their police departments' use of force, also have notably *outsized campaign contributions* as well given their populations.
 
 ```{r, echo=FALSE}
 staterankings_tocombinedcandsparties %>% 
@@ -283,6 +390,76 @@ staterankings_tocombinedcandsparties %>%
 
 
 ```
+
+#### Here are the rankings for **just candidates alone**...
+
+```{r, echo=FALSE}
+
+staterankings_tocands_all %>% 
+  head(10) %>% 
+  mutate(
+    total_dollars = scales::dollar(total_dollars),
+    dollars_per1000ppl = scales::dollar(dollars_per1000ppl)
+) %>% 
+  kable(format.args = list(big.mark = ",")) %>%
+  kable_styling(bootstrap_options = "striped", full_width = F, position = "left") %>% 
+  column_spec(6, bold = T, color = "purple") %>% 
+  column_spec(5, bold = T, color = "red") %>% 
+  column_spec(1, bold = T, color = "black") 
+
+
+```
+
+
+#### And here are the rankings for **just political party committees alone** (note Minnesota's prominence here)...
+
+```{r, echo=FALSE}
+
+staterankings_topartycmtes_all %>% 
+  head(10) %>% 
+  mutate(
+    total_dollars = scales::dollar(total_dollars),
+    dollars_per1000ppl = scales::dollar(dollars_per1000ppl)
+) %>% 
+  kable(format.args = list(big.mark = ",")) %>%
+  kable_styling(bootstrap_options = "striped", full_width = F, position = "left") %>% 
+  column_spec(6, bold = T, color = "purple") %>% 
+  column_spec(5, bold = T, color = "red") %>% 
+  column_spec(1, bold = T, color = "black") 
+
+
+```
+
+
+
+
+
+
+```{r, echo=FALSE}
+
+
+
+
+```
+
+
+
+```{r, echo=FALSE}
+
+
+
+
+```
+
+
+
+```{r, echo=FALSE}
+
+
+
+
+```
+
 
 
 ```{r, echo=FALSE}
