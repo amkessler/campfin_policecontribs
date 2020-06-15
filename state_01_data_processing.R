@@ -227,6 +227,25 @@ transactionlevel_to_candidates %>%
 
 
 
+### TOTAL PER ORG FOR OVERALL BIG NUMBER CALCULATION ####
+#Since there is some slight overlap between party cmtes and ballot measure data, this 
+#ensures we're not accidentally double counting anything, per Center's recommendation
+
+raw_forbignumber <- read_csv("raw_data/FTM_pu_orgtotalsonly_noprisons.csv", col_types = cols(.default = "c"))
+
+#run the function
+forbignumber <- process_ftm_table(raw_forbignumber)
+
+#save results to file
+saveRDS(forbignumber, "processed_data/forbignumber.rds")
+
+#total money?
+forbignumber %>% 
+  summarise(sum(dollar_amount))
+
+
+
+
 #### STATE CENSUS POPULATIONS ####
 
 statepops <- get_acs(
