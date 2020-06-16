@@ -10,13 +10,11 @@ knitr::opts_chunk$set(echo = TRUE)
 
 library(tidyverse)
 library(janitor)
-library(plotly)
 library(htmltools)
 library(widgetframe)
 library(scales)
 library(zoo)
 library(lubridate)
-library(gt)
 library(kableExtra)
 library(writexl)
 options(scipen = 999)
@@ -236,7 +234,7 @@ d + theme(axis.text.x  = element_text(angle=90, vjust=0.5, size = 8)) +
 
 Because **California** has an enormous amount of police group contributions, that state alone makes the Democrats especially dominant in what they receive. The chart below shows the totals **without California** included, which reveals a more nuanced picture of police group activty elsewhere, where the two parties were generally much closer during many cycles. Democrats still loomed much larger in the 2010 and 2014 election years, though things became more neck-and-neck after that.
   
-One potential trend that may be worth exploring is the way these contributions at the state level **mirror in some ways the presidential incumbent** at the time? In that Republican state party candidates and committees generally received a bit more after 9/11 during the W. Bush years, then after Obama was elected there's a huge surge in Dem money and advantage, then with 2016 and the ascendence of Trump, the Democratic advantage all but disappears and the parties are neck-and-neck again in recent cycles.
+One potential trend that may be worth exploring is the way these contributions at the state level **mirror in some ways the presidential incumbent** at the time? In that Republican state party candidates and committees generally received a bit more after 9/11 during the W. Bush years, then after Obama was elected there's a huge surge in Dem money and advantage, then with 2016 and the ascendence of Trump, the Democratic advantage all but disappears and the parties are much closer again in recent cycles.
 
 
 ```{r, echo=FALSE}
