@@ -1,0 +1,124 @@
+---
+title: "Contribs to Bill Sponsors"
+author: "Aaron Kessler"
+date: "`r format(Sys.time(), '%B %d, %Y')`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(tidyverse)
+library(janitor)
+library(htmltools)
+library(scales)
+library(zoo)
+library(lubridate)
+library(kableExtra)
+library(writexl)
+library(googlesheets4)
+options(scipen = 999)
+
+#load the data tables from step 01
+contribs_tocands <- readRDS("processed_data/contribs_tocands.rds")
+transactionlevel_to_candidates <- readRDS("processed_data/transactionlevel_to_candidates.rds")
+
+#trim spaces in name columns
+contribs_tocands <- contribs_tocands %>% 
+  mutate(
+    candidate = str_squish(candidate)
+  )
+
+transactionlevel_to_candidates <- transactionlevel_to_candidates %>% 
+  mutate(
+    recipient = str_squish(candidate)
+  )
+
+#upper case the party name
+contribs_tocands <- contribs_tocands %>% 
+  mutate(
+    general_party = str_trim(str_to_upper(general_party))
+  )
+
+transactionlevel_to_candidates <- transactionlevel_to_candidates %>% 
+  mutate(
+    general_party = str_trim(str_to_upper(general_party))
+  )
+
+
+
+#### Bring in sponsor list data from gsheet
+sponsors_raw <- read_sheet("1pp4nvXBBAg4SSVRjdJQBOi1qKakcMYMpU-HpscxdcLc")
+
+#format as upper case and trim extraneous spaces
+sponsors <- sponsors_raw %>% 
+  mutate(
+    last_name = str_trim(str_to_upper(last_name)),
+    first_name = str_trim(str_to_upper(first_name)),
+    middle_initial = str_trim(str_to_upper(middle_initial)),
+    state = str_trim(str_to_upper(state)),
+    party = str_trim(str_to_upper(party)),
+    office = str_trim(str_to_upper(office)),
+    #format date 
+    bill_pass_date = date(bill_pass_date)
+  )
+
+#create combined name string intended to match up to contribs data format
+sponsors <- sponsors %>% 
+  mutate(
+    candidate = paste0(last_name, ", ", first_name, " ", middle_initial),
+    candidate = str_remove_all(candidate, "NA"),
+    candidate = str_squish(candidate)
+  ) %>% 
+  select(candidate, everything())
+  
+sponsors
+
+```
+
+Look for matches between the sponsor list and the state contributions transaction level
+
+```{r, echo=FALSE}
+
+
+joined_trans <- inner_join(sponsors, transactionlevel_to_candidates, by = c("candidate" = "candidate", 
+                                                                          "state" = "election_jurisdiction"))
+
+joined_trans %>%
+  group_by(candidate, state) %>%
+  summarise(totdollars = sum(dollar_amount)) %>% 
+  arrange(desc(totdollars))
+
+
+```
+
+Look for matches between the sponsor list and the state contributions combined data
+
+```{r, echo=FALSE}
+
+
+joined_cands <- inner_join(sponsors, contribs_tocands, by = c("candidate" = "candidate", 
+                                                                          "state" = "election_jurisdiction"))
+
+joined_cands %>%
+  group_by(candidate, state) %>%
+  summarise(totdollars = sum(dollar_amount)) %>% 
+  arrange(desc(totdollars))
+
+
+```
+
+export results
+```{r}
+joined_trans %>%
+  group_by(candidate, state) %>%
+  summarise(totdollars = sum(dollar_amount)) %>% 
+  arrange(desc(totdollars)) %>% 
+  write_csv("output/sponsors_grouped.csv")
+
+joined_trans %>% 
+  write_csv("output/sponsors_transactions.csv")
+
+
+```
+

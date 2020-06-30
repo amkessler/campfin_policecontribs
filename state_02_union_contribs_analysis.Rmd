@@ -25,8 +25,7 @@ contribs_topartycmtes <- readRDS("processed_data/contribs_topartycmtes.rds")
 contribs_combined_candspartycmtes <- readRDS("processed_data/contribs_combined_candspartycmtes.rds")
 currentofficeholders_byparty <- readRDS("processed_data/currentofficeholders_byparty.rds")
 statepops <- readRDS("processed_data/statepops.rds")
-# contribs_toballotmeasures <- readRDS("processed_data/contribs_toballotmeasures.rds")
-# forbignumber <- readRDS("processed_data/forbignumber.rds")
+grandtotals_alldonors_tocandidates <- readRDS("processed_data/grandtotals_alldonors_tocandidates.rds")
 
 
 contribs_tocands %>% 
@@ -52,7 +51,7 @@ contribs_combined_candspartycmtes %>%
 timeframe_vector <- c("2014", "2016", "2017", "2018", "2019", "2020")
 
 
-#create per capita measures and rankings
+#create per capita measures and rankings #### ----------------------------
 staterankings_tocands_all <- contribs_tocands %>% 
   # filter(election_year %in% timeframe_vector) %>% #filtering years here
   group_by(election_jurisdiction) %>% 
@@ -104,7 +103,7 @@ contribs_tocands %>%
   count(election_year)
 
 
-### df of contribs by year, party
+### df of contribs by year, party #### -------------------------------------------------
 partytotal_by_year <- contribs_combined_candspartycmtes %>% 
   filter(party %in% c("Democratic", "Republican")) %>% 
   group_by(election_year, party) %>% 
@@ -113,7 +112,6 @@ partytotal_by_year <- contribs_combined_candspartycmtes %>%
   mutate(
     election_year = as_factor(election_year)
   )
-
 
 ### df of contribs by year, party - NO CALIFORNIA
 partytotal_by_year_NOCALIF <- contribs_combined_candspartycmtes %>% 
@@ -127,6 +125,66 @@ partytotal_by_year_NOCALIF <- contribs_combined_candspartycmtes %>%
   )
   
 
+
+## GRAND TOTALS / percentages of total candidate contribs #### -------------------------
+glimpse(grandtotals_alldonors_tocandidates)
+
+grandtotals_alldonors_tocandidates %>% 
+  count(election_year)
+
+# grant total by party
+grandtotals_alldonors_tocandidates %>% 
+  filter(general_party %in% c("Democratic", "Republican")) %>% 
+  group_by(general_party) %>% 
+  summarise(total_dollars = sum(dollar_amount)) %>% 
+  ungroup()
+
+
+# grand total by state
+statetotals_ALLcontribs <- grandtotals_alldonors_tocandidates %>% 
+  filter(general_party %in% c("Democratic", "Republican")) %>% 
+  # filter(election_year %in% timeframe_vector) %>% #filtering years here
+  group_by(election_jurisdiction) %>% 
+  summarise(total_dollars_allcontribs = sum(dollar_amount)) %>% 
+  ungroup()
+
+# total by state for police contribs
+statetotals_policecontribs <- contribs_tocands %>% 
+  filter(general_party %in% c("Democratic", "Republican")) %>% 
+  # filter(election_year %in% timeframe_vector) %>% #filtering years here
+  group_by(election_jurisdiction) %>% 
+  summarise(total_dollars_policecontribs = sum(dollar_amount)) %>% 
+  ungroup()
+
+#join together in order to calculate percentages
+statetotals_pct <- inner_join(statetotals_ALLcontribs, statetotals_policecontribs, 
+           by = "election_jurisdiction")
+
+#add calculated columns
+statetotals_pct <- statetotals_pct %>% 
+  mutate(
+    pct_police_ofevery100K = (total_dollars_policecontribs / total_dollars_allcontribs) * 100000,
+    pct_police_rank = min_rank(desc(pct_police_ofevery100K))
+  ) %>% 
+  arrange(pct_police_rank)
+
+
+statetotals_pct
+
+###to find-- contributions by state; contributions by state and party
+contribs_combined_candspartycmtes %>% 
+  filter(party %in% c("Democratic", "Republican")) %>% 
+  group_by(election_jurisdiction) %>% 
+  summarise(total_contribs = sum(dollar_amount)) %>% 
+  arrange(desc(total_contribs)) %>% 
+  write_xlsx("output/totaldemgop_bystate.xlsx")
+
+contribs_combined_candspartycmtes %>% 
+  filter(party %in% c("Democratic", "Republican")) %>% 
+  group_by(election_jurisdiction, party) %>% 
+  summarise(total_contribs = sum(dollar_amount)) %>% 
+  arrange(election_jurisdiction, party) %>% 
+  write_xlsx("output/totaldemgop_bystate_byparty.xlsx")
 
 
 ```
@@ -203,6 +261,76 @@ Only  **`r vector_challengerpct` percent** of contributions by police groups wen
 
 That said, it doesn't take the pressure off Democrats, who are in a bind that they TKTKTKTKTK.... It's likely that TKTKTKTK....
     
+
+
+## Where the money dominates
+
+If we look at **state-by-state giving accounting for population**, we find something interesting.  
+
+First, it turns out **California** and **New York** still top the list even after adjusting for their populations.  
+  
+But perhaps more strikingly are the smaller states that have a *substantially larger* amount of police union contributions. **Rhode Island**, **Arkansas**, and **Delaware** rank *at the bottom by population*, yet they're among the *highest ranked for per-capita police contributions*.  
+  
+**New Jersey** and **Washington State**, both with well-known problems with their police departments' use of force, also have notably *outsized campaign contributions* as well given their populations.
+
+```{r, echo=FALSE}
+staterankings_tocombinedcandsparties %>% 
+  head(10) %>% 
+  mutate(
+    total_dollars = scales::dollar(total_dollars),
+    dollars_per1000ppl = scales::dollar(dollars_per1000ppl)
+) %>% 
+  kable(format.args = list(big.mark = ",")) %>%
+  kable_styling(bootstrap_options = "striped", full_width = F, position = "left") %>% 
+  column_spec(6, bold = T, color = "purple") %>% 
+  column_spec(5, bold = T, color = "red") %>% 
+  column_spec(1, bold = T, color = "black") 
+
+
+```
+
+#### Here are the rankings for **just candidates alone**...
+
+```{r, echo=FALSE}
+
+staterankings_tocands_all %>% 
+  head(10) %>% 
+  mutate(
+    total_dollars = scales::dollar(total_dollars),
+    dollars_per1000ppl = scales::dollar(dollars_per1000ppl)
+) %>% 
+  kable(format.args = list(big.mark = ",")) %>%
+  kable_styling(bootstrap_options = "striped", full_width = F, position = "left") %>% 
+  column_spec(6, bold = T, color = "purple") %>% 
+  column_spec(5, bold = T, color = "red") %>% 
+  column_spec(1, bold = T, color = "black") 
+
+
+```
+
+
+### Percent of total contributions that are police group money
+This table ranks states by the percentage of total money contributed by **all donors** to candidates that **comes from police groups**. What share of the grand total of all political money to state candidates is made of up police groups -- expressed per 100K (*"e.g. $150 out of every $100,000 contributed"*)
+
+```{r, echo=FALSE}
+
+statetotals_pct %>% 
+  select(election_jurisdiction, pct_police_rank, pct_police_ofevery100K, total_dollars_policecontribs) %>%
+  head(25) %>% 
+  mutate(
+    pct_police_ofevery100K = round_half_up(pct_police_ofevery100K),
+    pct_police_ofevery100K = scales::dollar(pct_police_ofevery100K),
+    total_dollars_policecontribs = round_half_up(total_dollars_policecontribs),
+    total_dollars_policecontribs = scales::dollar(total_dollars_policecontribs)
+  ) %>% 
+  kable(format.args = list(big.mark = ",")) %>%
+  kable_styling(bootstrap_options = "striped", full_width = F, position = "left") %>% 
+  column_spec(2, bold = T) 
+
+```
+  
+  
+  
   
   
 ## Party Contributions by Election Year/Cycle
@@ -363,70 +491,6 @@ contribs_combined_candspartycmtes %>%
 
 
 
-
-## Where the money dominates
-
-But if we look at **state-by-state giving accounting for the populations**, we find something interesting.  
-
-Firstly, it turns out **California** and **New York** still top the list even after adjusting for their populations.  
-  
-But perhaps more strikingly are the smaller states that have a *substantially larger* amount of police union contributions. **Rhode Island**, **Arkansas**, and **Delaware** rank *at the bottom by population*, yet they're among the *highest ranked for per-capita police contributions*.  
-**New Jersey** and **Washington State**, both with well-known problems with their police departments' use of force, also have notably *outsized campaign contributions* as well given their populations.
-
-```{r, echo=FALSE}
-staterankings_tocombinedcandsparties %>% 
-  head(10) %>% 
-  mutate(
-    total_dollars = scales::dollar(total_dollars),
-    dollars_per1000ppl = scales::dollar(dollars_per1000ppl)
-) %>% 
-  kable(format.args = list(big.mark = ",")) %>%
-  kable_styling(bootstrap_options = "striped", full_width = F, position = "left") %>% 
-  column_spec(6, bold = T, color = "purple") %>% 
-  column_spec(5, bold = T, color = "red") %>% 
-  column_spec(1, bold = T, color = "black") 
-
-
-```
-
-#### Here are the rankings for **just candidates alone**...
-
-```{r, echo=FALSE}
-
-staterankings_tocands_all %>% 
-  head(10) %>% 
-  mutate(
-    total_dollars = scales::dollar(total_dollars),
-    dollars_per1000ppl = scales::dollar(dollars_per1000ppl)
-) %>% 
-  kable(format.args = list(big.mark = ",")) %>%
-  kable_styling(bootstrap_options = "striped", full_width = F, position = "left") %>% 
-  column_spec(6, bold = T, color = "purple") %>% 
-  column_spec(5, bold = T, color = "red") %>% 
-  column_spec(1, bold = T, color = "black") 
-
-
-```
-
-
-#### And here are the rankings for **just political party committees alone** (note Minnesota's prominence here)...
-
-```{r, echo=FALSE}
-
-staterankings_topartycmtes_all %>% 
-  head(10) %>% 
-  mutate(
-    total_dollars = scales::dollar(total_dollars),
-    dollars_per1000ppl = scales::dollar(dollars_per1000ppl)
-) %>% 
-  kable(format.args = list(big.mark = ",")) %>%
-  kable_styling(bootstrap_options = "striped", full_width = F, position = "left") %>% 
-  column_spec(6, bold = T, color = "purple") %>% 
-  column_spec(5, bold = T, color = "red") %>% 
-  column_spec(1, bold = T, color = "black") 
-
-
-```
 
 
 
