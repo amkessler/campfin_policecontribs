@@ -17,6 +17,7 @@ library(lubridate)
 library(kableExtra)
 library(writexl)
 library(googlesheets4)
+library(fuzzyjoin)
 options(scipen = 999)
 
 #load the data tables from step 01
@@ -50,7 +51,7 @@ transactionlevel_to_candidates <- transactionlevel_to_candidates %>%
 #### Bring in sponsor list data from gsheet
 sponsors_raw <- read_sheet("1pp4nvXBBAg4SSVRjdJQBOi1qKakcMYMpU-HpscxdcLc")
 
-#format as upper case and trim extraneous spaces
+#format as upper case and trim extraneous spaces, remove punctuation
 sponsors <- sponsors_raw %>% 
   mutate(
     last_name = str_trim(str_to_upper(last_name)),
@@ -66,6 +67,7 @@ sponsors <- sponsors_raw %>%
 #create combined name string intended to match up to contribs data format
 sponsors <- sponsors %>% 
   mutate(
+    last_name = if_else(!is.na(jr_ifapplicable), paste0(last_name, " ", jr_ifapplicable), last_name),
     candidate = paste0(last_name, ", ", first_name, " ", middle_initial),
     candidate = str_remove_all(candidate, "NA"),
     candidate = str_squish(candidate)
@@ -108,17 +110,94 @@ joined_cands %>%
 
 ```
 
-export results
-```{r}
-joined_trans %>%
-  group_by(candidate, state) %>%
-  summarise(totdollars = sum(dollar_amount)) %>% 
-  arrange(desc(totdollars)) %>% 
-  write_csv("output/sponsors_grouped.csv")
 
-joined_trans %>% 
-  write_csv("output/sponsors_transactions.csv")
+
+### Fuzzy join attempt
+
+Look for fuzzy matches between the sponsor list and the state contributions transaction level
+
+```{r, echo=FALSE}
+
+
+
+joined_trans_fuzzy <- stringdist_inner_join(sponsors, 
+                                            transactionlevel_to_candidates, 
+                                            by = c("candidate" = "candidate"),
+                                            max_dist = 4)
+
+#take out ones where extact match (we have those already)
+#ensure they're at least in same state
+joined_trans_fuzzy <- joined_trans_fuzzy %>% 
+  filter(candidate.x != candidate.y,
+         state.x == election_jurisdiction)
+
+fuzzy_potentials <- joined_trans_fuzzy %>% 
+  distinct(candidate.x, candidate.y, .keep_all = TRUE) %>% 
+  select(candidate.x, candidate.y, state.x, election_jurisdiction, party, general_party, everything()) 
+
+fuzzy_potentials
+
+write_csv(fuzzy_potentials, "output/fuzzy_potentials.csv")
+
+# 
+# joined_trans_fuzzy %>%
+#   group_by(candidate, state) %>%
+#   summarise(totdollars = sum(dollar_amount)) %>% 
+#   arrange(desc(totdollars))
+
 
 
 ```
+
+Manually inspect the possible fuzzy matches, then bring back the winners here...
+
+```{r, echo=FALSE}
+
+fuzzy_match_candidates <- read_csv("processed_data/fuzzy_matches.csv") %>% 
+  select(candidate = candidate.y, party, state = state.x)
+
+
+joined_trans_fuzz <- inner_join(fuzzy_match_candidates, transactionlevel_to_candidates, 
+                                by = c("candidate" = "candidate", "state" = "election_jurisdiction")) 
+
+
+
+```
+
+Append those to the main joined table
+
+```{r, echo=FALSE}
+
+joined_trans_withadds <- bind_rows(joined_trans, joined_trans_fuzz)
+
+#any nas?
+joined_trans_withadds %>% 
+  filter(is.na(candidate))
+
+#inspect party
+joined_trans_withadds %>% 
+  filter(party != general_party) %>% 
+  distinct(candidate, party, general_party)
+
+#sum up contribs per candidate
+joined_trans_withadds_grouped <- joined_trans_withadds %>%
+  group_by(candidate, state) %>%
+  summarise(totdollars = sum(dollar_amount)) %>% 
+  arrange(desc(totdollars)) %>% 
+  ungroup()
+
+joined_trans_withadds_grouped
+
+#exports
+joined_trans_withadds %>% 
+  write_csv("output/sponsors_transactions.csv")
+
+joined_trans_withadds_grouped %>% 
+  write_csv("output/sponsors_groupedcontribs.csv")
+
+
+```
+
+
+
 
